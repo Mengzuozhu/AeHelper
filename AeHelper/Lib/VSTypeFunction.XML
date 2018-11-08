@@ -1,0 +1,417 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VSTypeFunction</name>
+    </assembly>
+    <members>
+        <member name="T:VSTypeFunction.DataTableClass.DataTableInfoClass">
+            <summary>
+            数据表信息
+            </summary>
+        </member>
+        <member name="M:VSTypeFunction.DataTableClass.DataTableInfoClass.GetColumnSum(System.Data.DataTable,System.String)">
+            <summary>
+            求数据表格列和
+            </summary>
+            <param name="dataTable">数据表格</param>
+            <param name="columnName">列名</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.DataTableClass.DataTableInfoClass.GetAllColumnName(System.Data.DataTable)">
+            <summary>
+            获取数据表格所有列名
+            </summary>
+            <param name="dataTable">数据表格</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.DataTableClass.DataTableInfoClass.GetColumnValue(System.Data.DataTable,System.String)">
+            <summary>
+            获取指定列的所有值
+            </summary>
+            <param name="dataTable">数据表格</param>
+            <param name="columnName">列名</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.DataTableClass.DataTableInfoClass.GetColumnValueDictionary(System.Data.DataTable,System.String)">
+            <summary>
+            获取指定列的所有值
+            </summary>
+            <param name="dataTable">数据表格</param>
+            <param name="columnName">列名</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.DataTableClass.DataTableInfoClass.GetColumnUniqueValue(System.Data.DataTable,System.String)">
+            <summary>
+            获取指定列的唯一值值
+            </summary>
+            <param name="dataTable">数据表格</param>
+            <param name="columnName">列名</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.DataTableClass.DataTableInfoClass.GetDataTableBySelectedColumn(System.Data.DataTable,System.Collections.Generic.List{System.String})">
+            <summary>
+            获取只包含特定列的数据表格
+            </summary>
+            <param name="oldTable">原始数据表格</param>
+            <param name="columnNames">特定列名集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.DataTableClass.DataTableInfoClass.GetDataViewRowAndColumnCount(System.Data.DataTable)">
+            <summary>
+            获取表格行数和列数
+            </summary>
+            <param name="dataTable"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VSTypeFunction.TypeFunction.DateTimeFunction">
+            <summary>
+            记录时间
+            </summary>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.DateTimeFunction.BeginRecord">
+            <summary>
+            开始记录时间
+            </summary>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.DateTimeFunction.ShowTime">
+            <summary>
+            显示记录的时长
+            </summary>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.DateTimeFunction.GetDuration">
+            <summary>
+            获取记录时长
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:VSTypeFunction.TypeFunction.ByteFunction">
+            <summary>
+            字节函数
+            </summary>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.ByteFunction.ByteListToString(System.Collections.Generic.List{System.Byte})">
+            <summary>
+            字节集合转为字符串
+            </summary>
+            <param name="byteList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VSTypeFunction.TypeFunction.SystemTypeFunction">
+            <summary>
+            系统类型函数
+            </summary>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.SystemTypeFunction.GetTypeByString(System.String)">
+            <summary>
+            通过字符串内容获取类型
+            </summary>
+            <param name="type">字符串内容</param>
+            <returns></returns>
+        </member>
+        <member name="T:VSTypeFunction.TypeFunction.StringFunction">
+            <summary>
+            字符串函数
+            </summary>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.StringFunction.ConvertStringToDecimal(System.String)">
+            <summary>
+            转换包含E等科学计数法的字符串值为十进制树
+            </summary>
+            <param name="data">原始字符串</param>
+            <returns>十进制数</returns>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.StringFunction.IsNumber(System.String)">
+            <summary>
+            判断字符串是否为纯数字(0-9)
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.StringFunction.IsNumeric(System.String)">
+            <summary>
+            判断字符串是否是数字
+            </summary>
+            <param name="value">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.StringFunction.IsFloat(System.String)">
+            <summary>
+            判断字符串是否是浮点数
+            </summary>
+            <param name="str">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.StringFunction.ExtractStringAndNumber(System.String,System.String)">
+            <summary>
+            提取指定字符串和其后面的数字
+            </summary>
+            <param name="inString">输入字符串</param>
+            <param name="assignString">指定字符串</param>
+            <returns></returns>
+        </member>
+        <member name="T:VSTypeFunction.TypeFunction.ListFunction">
+            <summary>
+            列表函数
+            </summary>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.ListFunction.GetMinCountOfLists``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})">
+            <summary>
+            获取列表集合中最小的列表数目
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list1">列表</param>
+            <param name="list2">列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.ListFunction.AddListToDataTable``1(System.Collections.Generic.List{``0},System.Data.DataTable,System.String)">
+            <summary>
+            添加列表数据到数据表格
+            </summary>
+            <typeparam name="T">类型参数</typeparam>
+            <param name="list">列表</param>
+            <param name="dataTable">数据表格</param>
+            <param name="columnName">列名</param>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.ListFunction.IsListsEqual``1(System.Collections.Generic.List{``0},System.Collections.Generic.List{``0})">
+            <summary>
+            判断列表所有元素是否相等
+            </summary>
+            <typeparam name="T">类型参数</typeparam>
+            <param name="expected">列表</param>
+            <param name="actual">列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.ListFunction.SortAscendingList``1(System.Collections.Generic.List{``0})">
+            <summary>
+            升序排序
+            </summary>
+            <typeparam name="T">类型参数</typeparam>
+            <param name="inList">列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.ListFunction.SortDescendingList``1(System.Collections.Generic.List{``0})">
+            <summary>
+            降序排序
+            </summary>
+            <typeparam name="T">类型参数</typeparam>
+            <param name="inList">列表</param>
+            <returns></returns>
+        </member>
+        <member name="T:VSTypeFunction.TypeFunction.IntFunction">
+            <summary>
+            整数函数
+            </summary>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.IntFunction.IntToAlphBytes(System.Int32)">
+            <summary>
+            整型转为字母表字节集合，超出范围则添加新字母（28-AB）
+            </summary>
+            <param name="num">整型 范围大于1</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.IntFunction.IntToAlphString(System.Int32)">
+            <summary>
+            数字转字母字符串
+            </summary>
+            <param name="number">要转换成字母的数字（范围在闭区间[1,26]）</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.IntFunction.GetLessInt(System.Int32,System.Int32)">
+            <summary>
+            取较小的整数
+            </summary>
+            <param name="number1">整数</param>
+            <param name="number2">整数</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.IntFunction.GetRandomIntArray(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            获取不重复的随机序列数组
+            </summary>
+            <param name="minValue">指定最小值</param>
+            <param name="maxValue">指定最大值</param>
+            <param name="outCount">输出随机序列个数</param>
+            <param name="seed">种子值</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.IntFunction.GetRandomIntByEnumerable(System.Int32)">
+            <summary>
+            获取指定范围内的随机序列
+            </summary>
+            <param name="outCount">序列长度</param>
+            <returns></returns>
+        </member>
+        <member name="T:VSTypeFunction.DataTableClass.ProcessTableColumnClass">
+            <summary>
+            表格列处理
+            </summary>
+        </member>
+        <member name="M:VSTypeFunction.DataTableClass.ProcessTableColumnClass.AddNewColumnToTable(System.Data.DataTable,System.Collections.Generic.List{System.String})">
+            <summary>
+            添加新列到数据表格
+            </summary>
+            <param name="dataTable">数据表格</param>
+            <param name="columnNames">新列的名称</param>
+        </member>
+        <member name="M:VSTypeFunction.DataTableClass.ProcessTableColumnClass.ComputeColumnPercent(System.Data.DataTable,System.String)">
+            <summary>
+            计算列的百分比(以最后一列为分母)
+            </summary>
+            <param name="dataTable">数据表格</param>
+            <param name="columnName">列名</param>
+        </member>
+        <member name="M:VSTypeFunction.DataTableClass.ProcessTableColumnClass.SetLastColumnHundredPercent(System.Data.DataTable)">
+            <summary>
+            设置最后列的百分比为100%
+            </summary>
+            <param name="dataTable">数据表格</param>
+        </member>
+        <member name="M:VSTypeFunction.DataTableClass.ProcessTableColumnClass.StardardTableColumnByDigit(System.Data.DataTable,System.Int32,System.Int64)">
+            <summary>
+            数据表格某些列所有数据除以指定位数
+            </summary>
+            <param name="dataTable">数据表格</param>
+            <param name="beginColumn">开始列数</param>
+            <param name="digits">指定位数</param>
+        </member>
+        <member name="T:VSTypeFunction.TypeFunction.CharFunctioncs">
+            <summary>
+            字符函数
+            </summary>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.CharFunctioncs.OnlyEnterNumber(System.Char)">
+            <summary>
+            只能输入数字和退格键
+            </summary>
+            <param name="inChar">字符</param>
+            <returns></returns>
+        </member>
+        <member name="T:VSTypeFunction.DataTableClass.JoinDataTableClass">
+            <summary>
+            连接表格
+            </summary>
+        </member>
+        <member name="M:VSTypeFunction.DataTableClass.JoinDataTableClass.JoinTwoTable(System.Data.DataTable,System.Data.DataTable,System.String,System.String,System.String)">
+            <summary>
+            连接2个表格
+            </summary>
+            <param name="firstTable">第一个表格</param>
+            <param name="secondTable">第二个表格</param>
+            <param name="referColumnName">参考列的名称</param>
+            <param name="firstColumnName">第一个表格列名前缀</param>
+            <param name="secondColumnName">第二个表格列名前缀</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.DataTableClass.JoinDataTableClass.AddRow(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.Object}},System.Data.DataTable)">
+            <summary>
+            添加行数据
+            </summary>
+            <param name="query"></param>
+            <param name="joinTable"></param>
+        </member>
+        <member name="M:VSTypeFunction.DataTableClass.JoinDataTableClass.JoinDataTables(System.Collections.Generic.IList{System.String},System.Collections.Generic.IList{System.Data.DataTable},System.String)">
+            <summary>
+            以参考列为基准，连接数据表格，生成新表格并更改列名
+            </summary>
+            <param name="names">新列名的前缀(例："name_")</param>
+            <param name="tables">数据表格集合</param>
+            <param name="referColumnName">参考列的名称</param>
+            <returns></returns>
+        </member>
+        <member name="T:VSTypeFunction.TypeFunction.DictionaryFunction">
+            <summary>
+            字典函数
+            </summary>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.DictionaryFunction.GetRandomDictionary(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            获取不重复的随机序列字典
+            </summary>
+            <param name="minValue">指定最小值</param>
+            <param name="maxValue">指定最大值</param>
+            <param name="outCount">输出随机序列个数</param>
+            <param name="seed">种子值</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.DictionaryFunction.GetRandomDictionaryWithValue(System.Int32,System.Int32,System.Int32,System.Object,System.Int32)">
+            <summary>
+            获取不重复的随机序列字典（带上字典值）
+            </summary>
+            <param name="minValue">指定最小值</param>
+            <param name="maxValue">指定最大值</param>
+            <param name="outCount">输出随机序列个数</param>
+            <param name="dicValue">字典中的值</param>
+            <param name="seed">种子值</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.DictionaryFunction.GetRandomDictionaryWithValueByAdd(System.Int32,System.Int32,System.Int32,System.Object,System.Int32)">
+            <summary>
+            通过添加键值，获取不重复的随机序列字典（带上字典值）
+            </summary>
+            <param name="minValue">指定最小值</param>
+            <param name="maxValue">指定最大值</param>
+            <param name="outCount">输出随机序列个数</param>
+            <param name="dicValue">字典中的值</param>
+            <param name="seed">种子值</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.DictionaryFunction.GetRandomDictionaryWithValueByRemove(System.Int32,System.Int32,System.Int32,System.Object,System.Int32)">
+            <summary>
+            通过移除键值，获取不重复的随机序列字典（带上字典值）
+            </summary>
+            <param name="minValue">指定最小值</param>
+            <param name="maxValue">指定最大值</param>
+            <param name="outCount">输出随机序列个数</param>
+            <param name="dicValue">字典中的值</param>
+            <param name="seed">种子值</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.DictionaryFunction.ListToDictionary(System.Collections.Generic.List{System.String})">
+            <summary>
+            列表转为字典
+            </summary>
+            <param name="list">列表</param>
+            <returns></returns>
+        </member>
+        <member name="T:VSTypeFunction.TypeFunction.ArrayFunction">
+            <summary>
+            数组函数
+            </summary>
+        </member>
+        <member name="M:VSTypeFunction.TypeFunction.ArrayFunction.IsArrayEqual(System.Array,System.Array)">
+            <summary>
+            判断数组是否相等
+            </summary>
+            <param name="arr1">数组1</param>
+            <param name="arr2">数组2</param>
+            <returns></returns>
+        </member>
+        <member name="T:VSTypeFunction.DataTableClass.ProcessDataTableClass">
+            <summary>
+            表格处理
+            </summary>
+        </member>
+        <member name="M:VSTypeFunction.DataTableClass.ProcessDataTableClass.ConvertDataTableType(System.Data.DataTable,System.String)">
+            <summary>
+            转换表格列的类型
+            </summary>
+            <param name="oldTable">旧表格</param>
+            <param name="type">数据类型名</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.DataTableClass.ProcessDataTableClass.QueryDataTable(System.Data.DataTable,System.String)">
+            <summary>
+            查询数据表格
+            </summary>
+            <param name="dataTable">数据表格</param>
+            <param name="querySentence">查询语句</param>
+            <returns></returns>
+        </member>
+        <member name="M:VSTypeFunction.DataTableClass.ProcessDataTableClass.GetTestTable">
+            <summary>
+            获取测试表格
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

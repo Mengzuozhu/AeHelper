@@ -32,12 +32,57 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\AeHelper.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ESRI.ArcGIS.ADF.Local, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.ArcMapUI, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.AxControls, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
     <Reference Include="ESRI.ArcGIS.Carto, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.CartoUI, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Controls, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.DataSourcesFile, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.DataSourcesRaster, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Display, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Framework, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.GeoAnalyst, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Geodatabase, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Geometry, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
@@ -48,19 +93,87 @@
     <Reference Include="ESRI.ArcGIS.Geoprocessor, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="ESRI.ArcGIS.Output, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.SpatialAnalyst, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
     <Reference Include="ESRI.ArcGIS.System, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.SystemUI, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ExternalProgram">
+      <HintPath>Lib\ExternalProgram.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VSTypeFunction">
+      <HintPath>Lib\VSTypeFunction.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LayerInfoControl.cs" />
-    <Compile Include="MyGeoprocessor.cs" />
+    <Compile Include="AeControl\ControlLayerInfo.cs" />
+    <Compile Include="AeDisplay\GeometryDisplay\AeColorClass.cs" />
+    <Compile Include="AeDisplay\GeometryDisplay\DrawGeometryClass.cs" />
+    <Compile Include="AeDisplay\MapAndPageLayoutSynchApp\ControlsSynchronizer.cs" />
+    <Compile Include="AeDisplay\MapAndPageLayoutSynchApp\Maps.cs" />
+    <Compile Include="AeDisplay\Mapping\ExportMapClass.cs" />
+    <Compile Include="AeDisplay\Mapping\MappingClass.cs" />
+    <Compile Include="AeDisplay\Mapping\MyLengendClass.cs" />
+    <Compile Include="AeDisplay\Mapping\MyMapGridClass.cs" />
+    <Compile Include="AeDisplay\Mapping\MyMapTitleClass.cs" />
+    <Compile Include="AeDisplay\Mapping\MyNorthArrowClass.cs" />
+    <Compile Include="AeDisplay\Mapping\MyScaleBarClass.cs" />
+    <Compile Include="AeDisplay\Mapping\PageLayoutTemplate.cs" />
+    <Compile Include="AeDisplay\Mapping\SymbolFunction.cs" />
+    <Compile Include="AeDisplay\Renderer\ClassifyRenderer.cs" />
+    <Compile Include="AeDisplay\Renderer\RendererClass.cs" />
+    <Compile Include="AeDisplay\Renderer\StretchRenderer.cs" />
+    <Compile Include="AeDisplay\Renderer\UniqueValueRenderer.cs" />
+    <Compile Include="LayerProcess\AllLayerProcess\LayerInfoClass.cs" />
+    <Compile Include="LayerProcess\AllLayerProcess\MyGeoprocessor.cs" />
+    <Compile Include="LayerProcess\AllLayerProcess\SpatialReferenceClass.cs" />
+    <Compile Include="LayerProcess\AttributeTable\AttributeTableClass.cs" />
+    <Compile Include="LayerProcess\FeatureProcess\CopyDatasetClass.cs" />
+    <Compile Include="LayerProcess\FeatureProcess\CopyFeatureLayerClass.cs" />
+    <Compile Include="LayerProcess\FeatureProcess\CreateNewFeatureLayerClass.cs" />
+    <Compile Include="LayerProcess\FeatureProcess\CreateNewFieldClass.cs" />
+    <Compile Include="LayerProcess\FeatureProcess\FeatureAreaClass.cs" />
+    <Compile Include="LayerProcess\FeatureProcess\FeatureInfoClass.cs" />
+    <Compile Include="LayerProcess\FeatureProcess\UnionFeatureClass.cs" />
+    <Compile Include="LayerProcess\FieldHelper\ChangeFieldClass.cs" />
+    <Compile Include="LayerProcess\FieldHelper\DeleteFieldClass.cs" />
+    <Compile Include="LayerProcess\FieldHelper\FieldNameClass.cs" />
+    <Compile Include="LayerProcess\FieldHelper\LayerFieldInfoClass.cs" />
+    <Compile Include="LayerProcess\FieldHelper\NewFieldClass.cs" />
+    <Compile Include="LayerProcess\RasterProcess\CopyRasterDatasetClass.cs" />
+    <Compile Include="LayerProcess\RasterProcess\RasterAnalysisEnvironmentClass.cs" />
+    <Compile Include="LayerProcess\RasterProcess\RasterCalculatorClass.cs" />
+    <Compile Include="LayerProcess\RasterProcess\RasterDataInfoClass.cs" />
+    <Compile Include="LayerProcess\RasterProcess\RasterTableFunction.cs" />
+    <Compile Include="LayerProcess\RasterProcess\SaveAsRasterClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RightMenuCommand\BuildAttributeTable.cs" />
+    <Compile Include="RightMenuCommand\CreateNewDocument.cs" />
+    <Compile Include="RightMenuCommand\LayerPropertiesCmd.cs" />
+    <Compile Include="RightMenuCommand\LayerVisibility.cs" />
+    <Compile Include="RightMenuCommand\RemoveLayer.cs" />
+    <Compile Include="RightMenuCommand\ZoomToLayer.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -79,6 +192,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Lib\ExternalProgram.dll" />
+    <Content Include="Lib\VSTypeFunction.dll" />
+    <Content Include="RightMenuCommand\LayerPropertiesCmd.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
