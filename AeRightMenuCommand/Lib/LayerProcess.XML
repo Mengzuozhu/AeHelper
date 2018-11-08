@@ -1,0 +1,1307 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LayerProcess</name>
+    </assembly>
+    <members>
+        <member name="T:LayerProcess.Field.NewFieldClass">
+            <summary>
+            新字段
+            </summary>
+        </member>
+        <member name="M:LayerProcess.Field.NewFieldClass.#ctor">
+            <summary>
+            新字段
+            </summary>
+        </member>
+        <member name="M:LayerProcess.Field.NewFieldClass.AddNewField(ESRI.ArcGIS.Geodatabase.ITable,System.String,ESRI.ArcGIS.Geodatabase.esriFieldType,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            添加新字段
+            </summary>
+            <param name="pTable">空间表格</param>
+            <param name="fieldName">字段名称</param>
+            <param name="fieldType">字段类型</param>
+            <param name="isNullable"></param>
+            <param name="isRequired"></param>
+            <param name="isEditable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.NewFieldClass.AddNewField(ESRI.ArcGIS.Carto.ILayer,System.String,ESRI.ArcGIS.Geodatabase.esriFieldType,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            添加新字段
+            </summary>
+            <param name="layer">图层</param>
+            <param name="fieldName">字段名称</param>
+            <param name="fieldType">字段类型</param>
+            <param name="isNullable"></param>
+            <param name="isRequired"></param>
+            <param name="isEditable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.NewFieldClass.GetNewFieldEdit(System.String,ESRI.ArcGIS.Geodatabase.esriFieldType)">
+            <summary>
+            获取新字段
+            </summary>
+            <param name="fieldName">字段名称</param>
+            <param name="fieldType">字段类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.NewFieldClass.AddAndGetNewFieldIndex(ESRI.ArcGIS.Geodatabase.ITable,System.String,ESRI.ArcGIS.Geodatabase.esriFieldType)">
+            <summary>
+            添加字段
+            </summary>
+            <param name="pTable"></param>
+            <param name="fieldName"></param>
+            <param name="fieldType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.NewFieldClass.SetAliasName(System.String)">
+            <summary>
+            设置别名
+            </summary>
+            <param name="aliasName"></param>
+        </member>
+        <member name="M:LayerProcess.Field.NewFieldClass.SetPrecision(System.Int32)">
+            <summary>
+            设置精度
+            </summary>
+            <param name="precision"></param>
+        </member>
+        <member name="M:LayerProcess.Field.NewFieldClass.SetScale(System.Int32)">
+            <summary>
+            设置刻度
+            </summary>
+            <param name="scale"></param>
+        </member>
+        <member name="M:LayerProcess.Field.NewFieldClass.SetLength(System.Int32)">
+            <summary>
+            设置长度
+            </summary>
+            <param name="length"></param>
+        </member>
+        <member name="M:LayerProcess.Field.NewFieldClass.SetIsNullable(System.Boolean)">
+            <summary>
+            设置是否为空
+            </summary>
+            <param name="isNullable"></param>
+        </member>
+        <member name="M:LayerProcess.Field.NewFieldClass.SetIsRequired(System.Boolean)">
+            <summary>
+            设置是否必需
+            </summary>
+            <param name="isRequired"></param>
+        </member>
+        <member name="M:LayerProcess.Field.NewFieldClass.SetIsEditable(System.Boolean)">
+            <summary>
+            设置是否可编辑
+            </summary>
+            <param name="isEditable"></param>
+        </member>
+        <member name="T:LayerProcess.Field.DeleteFieldClass">
+            <summary>
+            删除字段
+            </summary>
+        </member>
+        <member name="M:LayerProcess.Field.DeleteFieldClass.DeleteField(ESRI.ArcGIS.Geodatabase.ITable,System.String)">
+            <summary>
+            删除字段
+            </summary>
+            <param name="iTable">空间表格</param>
+            <param name="fieldName">字段名称</param>
+        </member>
+        <member name="M:LayerProcess.Field.DeleteFieldClass.DeleteFieldType(ESRI.ArcGIS.Carto.ILayer,ESRI.ArcGIS.Geodatabase.esriFieldType)">
+            <summary>
+            删除指定类型的字段
+            </summary>
+            <param name="layer">图层</param>
+            <param name="fieldType">指定字段类型</param>
+            <returns>图层</returns>
+        </member>
+        <member name="M:LayerProcess.Field.DeleteFieldClass.DeleteNoSelectedField(ESRI.ArcGIS.Carto.ILayer,System.Collections.Generic.List{System.String})">
+            <summary>
+            删除不被选中的字段
+            </summary>
+            <param name="layer">图层</param>
+            <param name="selectedFieldName">选中的字段列表</param>
+        </member>
+        <member name="M:LayerProcess.Field.DeleteFieldClass.IsNotDeleteField(System.Collections.Generic.List{System.String},ESRI.ArcGIS.Geodatabase.IField)">
+            <summary>
+            不是要删除的字段
+            </summary>
+            <param name="selectedFieldName">选中的字段名称</param>
+            <param name="field">字段</param>
+            <returns></returns>
+        </member>
+        <member name="T:LayerProcess.Field.FieldNameClass">
+            <summary>
+            字段名称
+            </summary>
+        </member>
+        <member name="M:LayerProcess.Field.FieldNameClass.GetFieldNameInFieldTypes(ESRI.ArcGIS.Carto.ILayer,System.Collections.Generic.Dictionary{ESRI.ArcGIS.Geodatabase.esriFieldType,System.Int32})">
+            <summary>
+            获取指定类型的字段名称
+            </summary>
+            <param name="layer">图层</param>
+            <param name="fieldTypes">指定类型的字段</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.FieldNameClass.GetFieldNameNotInFieldTypes(ESRI.ArcGIS.Carto.ILayer,System.Collections.Generic.Dictionary{ESRI.ArcGIS.Geodatabase.esriFieldType,System.Int32})">
+            <summary>
+            获取不在指定类型中的字段
+            </summary>
+            <param name="layer">图层</param>
+            <param name="fieldTypes">指定类型的字段</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.FieldNameClass.GetFieldNameInFieldTypes(ESRI.ArcGIS.Geodatabase.IFields,System.Collections.Generic.Dictionary{ESRI.ArcGIS.Geodatabase.esriFieldType,System.Int32})">
+            <summary>
+            获取指定类型的字段名称
+            </summary>
+            <param name="fields">字段集合</param>
+            <param name="fieldTypes">指定类型的字段</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.FieldNameClass.GetFieldNameNotInFieldTypes(ESRI.ArcGIS.Geodatabase.IFields,System.Collections.Generic.Dictionary{ESRI.ArcGIS.Geodatabase.esriFieldType,System.Int32})">
+            <summary>
+            获取指定类型的字段名称
+            </summary>
+            <param name="fields">字段集合</param>
+            <param name="fieldTypes">指定类型的字段</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.FieldNameClass.GetAllFieldNames(ESRI.ArcGIS.Carto.ILayer)">
+            <summary>
+            获取图层所有字段名称（除了几何字段）
+            </summary>
+            <param name="layer">图层</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.FieldNameClass.GetAllFieldNames(ESRI.ArcGIS.Geodatabase.IFeatureClass)">
+            <summary>
+            根据要素集合所有字段名称（除了几何字段）
+            </summary>
+            <param name="featureClass">要素集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.FieldNameClass.GetGeometryFieldType">
+            <summary>
+            获取几何类型字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.FieldNameClass.GetIntegerOrStringFieldNames(ESRI.ArcGIS.Carto.ILayer)">
+            <summary>
+            获取图层整型或字符串字段名称
+            </summary>
+            <param name="layer">图层</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.FieldNameClass.GetIntegerOrFloatFieldNames(ESRI.ArcGIS.Carto.ILayer)">
+            <summary>
+            获取图层整型或浮点字段名称
+            </summary>
+            <param name="layer">图层</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.FieldNameClass.GetIntegerOrStringOrFloatFieldNames(ESRI.ArcGIS.Carto.ILayer)">
+            <summary>
+            获取图层整型、字符串或浮点字段名称
+            </summary>
+            <param name="layer">图层</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.FieldNameClass.GetOidAndIntegerFieldType">
+            <summary>
+            获取OID和整型字段类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.FieldNameClass.GetOidIntegerAndFloatFieldType">
+            <summary>
+            获取OID、整型和浮点字段类型
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.FieldNameClass.GetDateFieldNames(ESRI.ArcGIS.Carto.ILayer)">
+            <summary>
+            获取图层日期字段名称
+            </summary>
+            <param name="layer">图层</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.FieldNameClass.GetEditableFieldNames(ESRI.ArcGIS.Carto.ILayer)">
+            <summary>
+            获取可编辑字段
+            </summary>
+            <param name="layer">图层</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.FieldNameClass.GetReadnolyFieldNames(ESRI.ArcGIS.Carto.ILayer)">
+            <summary>
+            获取不可编辑字段
+            </summary>
+            <param name="layer">图层</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.FieldNameClass.IsFieldEditable(ESRI.ArcGIS.Geodatabase.IField)">
+            <summary>
+            字段可编辑
+            </summary>
+            <param name="field">字段</param>
+            <returns></returns>
+        </member>
+        <member name="T:LayerProcess.FeatureProcess.CreateNewFeatureLayerClass">
+            <summary>
+            创建新的要素图层
+            </summary>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFeatureLayerClass.#ctor(System.String,System.Data.DataTable)">
+            <summary>
+            创建新的要素图层
+            </summary>
+            <param name="inVectorFile"></param>
+            <param name="newLayerTable"></param>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFeatureLayerClass.SelectAndCreateNewLayer(System.String,System.String)">
+            <summary>
+            选择要素，创建新图层
+            </summary>
+            <param name="whereClause">选择条件</param>
+            <param name="saveFile">保存路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFeatureLayerClass.AddNewFiled(ESRI.ArcGIS.Carto.IFeatureLayer,System.String)">
+            <summary>
+            添加新字段
+            </summary>
+            <param name="newLayer">新图层</param>
+            <param name="columnName"></param>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFeatureLayerClass.AddNewFields(ESRI.ArcGIS.Carto.IFeatureLayer,System.Collections.Generic.List{System.String})">
+            <summary>
+            添加多个新字段
+            </summary>
+            <param name="newLayer">新图层</param>
+            <param name="fieldNames">字段列表</param>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFeatureLayerClass.SelectFeature(System.String)">
+            <summary>
+            选择要素
+            </summary>
+            <param name="whereClause">选择条件</param>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFeatureLayerClass.CreateNewLayer(System.String)">
+            <summary>
+            创建新图层
+            </summary>
+            <param name="saveFile">保存路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFeatureLayerClass.CopyOldFeatureLayerWithSelectFiled(ESRI.ArcGIS.Geodatabase.IFeatureWorkspace,ESRI.ArcGIS.Carto.IFeatureLayer,System.String)">
+            <summary>
+            复制旧要素图层（只包含选中字段）
+            </summary>
+            <param name="featureWorkspace">要素工作空间</param>
+            <param name="selectionLayer">被复制要素图层</param>
+            <param name="newLayerName">新图层名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFeatureLayerClass.CreateNewFeatureClass(ESRI.ArcGIS.Geodatabase.IFeatureWorkspace,ESRI.ArcGIS.Carto.IFeatureLayer,System.String)">
+            <summary>
+            以旧图层为基础创建新图层要素集合
+            </summary>
+            <param name="featureWorkspace">要素工作空间</param>
+            <param name="selectionLayer">旧图层</param>
+            <param name="newLayerName">新图层名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFeatureLayerClass.CopyFeatureValueToNewFeature(ESRI.ArcGIS.Carto.IFeatureLayer,ESRI.ArcGIS.Geodatabase.IFeatureClass,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Collections.Generic.List{System.String})">
+            <summary>
+            复制旧要素值到新要素集合
+            </summary>
+            <param name="selectionLayer">旧图层</param>
+            <param name="newFeatureClass">新要素集合</param>
+            <param name="fidValue">FID值</param>
+            <param name="selectFieldName">选中字段名称</param>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFeatureLayerClass.InsertFeaturesUsingCursor(ESRI.ArcGIS.Carto.IFeatureLayer,ESRI.ArcGIS.Geodatabase.IFeatureClass,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Collections.Generic.List{System.String})">
+            <summary>
+            使用游标插入要素
+            </summary>
+            <param name="selectionLayer">旧图层</param>
+            <param name="newFeatureClass">新要素集合</param>
+            <param name="fidValue">FID值</param>
+            <param name="selectFieldName">选中字段名称</param>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFeatureLayerClass.DeleteFeatureClassFields(ESRI.ArcGIS.Geodatabase.IFeatureClass,System.Collections.Generic.List{System.String})">
+            <summary>
+            删除要素集合非选中字段
+            </summary>
+            <param name="featureClass">要素集合</param>
+            <param name="selectFieldName">选中字段名称</param>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFeatureLayerClass.IsSelectOrReadonlyField(System.Collections.Generic.List{System.String},ESRI.ArcGIS.Geodatabase.IField)">
+            <summary>
+            是选中或只读字段
+            </summary>
+            <param name="selectFieldName">选中字段列表</param>
+            <param name="field">字段</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFeatureLayerClass.StartEdit(ESRI.ArcGIS.Geodatabase.IWorkspaceEdit)">
+            <summary>
+            开始编辑
+            </summary>
+            <param name="workspaceEdit">编辑</param>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFeatureLayerClass.EndAndSaveEdit(ESRI.ArcGIS.Geodatabase.IWorkspaceEdit)">
+            <summary>
+            停止并保存编辑结果
+            </summary>
+            <param name="workspaceEdit">编辑</param>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFeatureLayerClass.UndoEdit(ESRI.ArcGIS.Geodatabase.IWorkspaceEdit)">
+            <summary>
+            撤销编辑
+            </summary>
+            <param name="workspaceEdit">编辑</param>
+        </member>
+        <member name="T:LayerProcess.RasterProcess.RasterDataInfoClass">
+            <summary>
+            栅格数据信息
+            </summary>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterDataInfoClass.GetRasterLayer(System.String)">
+            <summary>
+            获取栅格图层
+            </summary>
+            <param name="filePath">图层文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterDataInfoClass.GetRasterLayerByDataset(ESRI.ArcGIS.Geodatabase.IDataset)">
+            <summary>
+            通过数据集获取栅格图层
+            </summary>
+            <param name="dataset">数据集</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterDataInfoClass.GetRasterLayerByNameAndList(System.String,System.Collections.Generic.List{ESRI.ArcGIS.Carto.IRasterLayer})">
+            <summary>
+            根据图层名称和图层列表获取图层
+            </summary>
+            <param name="layerName">图层名称</param>
+            <param name="rasterLayers">图层列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterDataInfoClass.GetRasterWorkspace(System.String)">
+            <summary>
+            获取栅格工作空间
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterDataInfoClass.GetRasterDataset(System.String)">
+            <summary>
+            获取栅格数据集
+            </summary>
+            <param name="filePath">栅格文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterDataInfoClass.GetGeoDatasetByFile(System.String)">
+            <summary>
+            根据文件获取几何数据集
+            </summary>
+            <param name="inFile">输入文件</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterDataInfoClass.GetGeoDatasetByRaster(ESRI.ArcGIS.Geodatabase.IRaster,System.String)">
+            <summary>
+            根据栅格和字段获取几何数据集
+            </summary>
+            <param name="raster">栅格</param>
+            <param name="field">字段</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterDataInfoClass.GetRaster(System.String)">
+            <summary>
+            获取栅格
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterDataInfoClass.GetMinCellSizeRaster(System.Collections.Generic.IList{ESRI.ArcGIS.Geodatabase.IRaster})">
+            <summary>
+            获取像元大小最小(分辨率最高)的栅格
+            </summary>
+            <param name="inRasters">输入栅格集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterDataInfoClass.GetCellArea(ESRI.ArcGIS.Geodatabase.IRaster)">
+            <summary>
+            获取像元面积（单位：平方米，保留5位小数）
+            </summary>
+            <param name="raster">栅格</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterDataInfoClass.IsExistRasterPyramid(System.String)">
+            <summary>
+            是否存在金字塔
+            </summary>
+            <param name="rasterFilePath">栅格文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterDataInfoClass.CreatePyramid(System.String)">
+            <summary>
+            创建金字塔
+            </summary>
+            <param name="rasterFilePath">栅格文件路径</param>
+        </member>
+        <member name="T:LayerProcess.RasterProcess.RasterCalculatorClass">
+            <summary>
+            栅格计算器
+            </summary>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterCalculatorClass.GetRasterCalculateResult(ESRI.ArcGIS.SpatialAnalyst.IMapAlgebraOp,System.Collections.Generic.IList{ESRI.ArcGIS.Geodatabase.IRaster},System.Collections.Generic.IList{System.String},System.String)">
+            <summary>
+            获取栅格计算的栅格结果
+            </summary>
+            <param name="pMapAlgebraOp">计算工具</param>
+            <param name="inRasters">输入栅格集合</param>
+            <param name="rasterName">栅格名称集合</param>
+            <param name="expression">计算表达式</param>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterCalculatorClass.GetRasterCalculateResult(System.Collections.Generic.Dictionary{System.String,ESRI.ArcGIS.Geodatabase.IRaster},System.String)">
+            <summary>
+            获取栅格计算的栅格结果
+            </summary>
+            <param name="nameAndRasters"></param>
+            <param name="expression">计算表达式</param>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterCalculatorClass.GetNameAndRasters(System.Collections.Generic.IList{ESRI.ArcGIS.Geodatabase.IRaster},System.Collections.Generic.IList{System.String})">
+            <summary>
+            获取名称和栅格
+            </summary>
+            <param name="inRasters"></param>
+            <param name="rasterName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterCalculatorClass.RasterCalculate(ESRI.ArcGIS.SpatialAnalyst.IMapAlgebraOp,System.Collections.Generic.Dictionary{System.String,ESRI.ArcGIS.Geodatabase.IRaster},System.String)">
+            <summary>
+            栅格计算
+            </summary>
+            <param name="mapAlgebraOp"></param>
+            <param name="expression"></param>
+            <param name="nameAndRasters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterCalculatorClass.RasterCalculate(System.Collections.Generic.Dictionary{System.String,ESRI.ArcGIS.Geodatabase.IRaster},System.String,System.String)">
+            <summary>
+            栅格计算
+            </summary>
+            <param name="nameAndRasters"></param>
+            <param name="expression">计算表达式</param>
+            <param name="outFile"></param>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterCalculatorClass.GetAlgebraOpWithMaxResolution(System.Collections.Generic.Dictionary{System.String,ESRI.ArcGIS.Geodatabase.IRaster})">
+            <summary>
+            获取分辨率最高的栅格计算操作类
+            </summary>
+            <param name="nameAndRasters"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LayerProcess.RasterProcess.SaveAsRasterClass">
+            <summary>
+            栅格保存
+            </summary>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.SaveAsRasterClass.RasterSaveAsDataset(ESRI.ArcGIS.Geodatabase.IRaster,System.String)">
+            <summary>
+            栅格保存为数据集（并创建金字塔）
+            </summary>
+            <param name="raster">栅格</param>
+            <param name="outFile">输出文件</param>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.SaveAsRasterClass.GeoDatasetSaveAsDataset(ESRI.ArcGIS.Geodatabase.IGeoDataset,System.String)">
+            <summary>
+            几何数据集保存为数据集 
+            </summary>
+            <param name="geoDataset">几何数据集</param>
+            <param name="outFile">输出文件</param>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.SaveAsRasterClass.SaveAsAndReleaseRaster(ESRI.ArcGIS.Geodatabase.IRaster,System.String)">
+            <summary>
+            保存栅格为输出文件（同时释放栅格对象）
+            </summary>
+            <param name="raster">栅格</param>
+            <param name="outFile">输出文件</param>
+        </member>
+        <member name="T:LayerProcess.RasterProcess.RasterAnalysisEnvironmentClass">
+            <summary>
+            栅格分析环境
+            </summary>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterAnalysisEnvironmentClass.SetRasterAnalysisOutWorkspace(ESRI.ArcGIS.GeoAnalyst.IRasterAnalysisEnvironment)">
+            <summary>
+            设置栅格分析环境的输出空间为临时文件夹
+            </summary>
+            <param name="rasterAnalysisEnvironment">栅格分析环境</param>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterAnalysisEnvironmentClass.SetAnalysisEnvironment``1(``0,ESRI.ArcGIS.Geodatabase.IRaster)">
+            <summary>
+            设置栅格分析环境
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="analysisOperation"></param>
+            <param name="raster"></param>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterAnalysisEnvironmentClass.GetOutCellSize(ESRI.ArcGIS.DataSourcesRaster.IRasterProps)">
+            <summary>
+            获取输出像元大小
+            </summary>
+            <param name="rasterProps"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterAnalysisEnvironmentClass.SetOutSpatialReference(ESRI.ArcGIS.Geodatabase.IRaster,ESRI.ArcGIS.GeoAnalyst.IRasterAnalysisEnvironment)">
+            <summary>
+            设置输出数据空间参考
+            </summary>
+            <param name="raster"></param>
+            <param name="pRasAnalysisEnvironment"></param>
+        </member>
+        <member name="T:LayerProcess.FeatureProcess.UnionFeatureClass">
+            <summary>
+            合并要素
+            </summary>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.UnionFeatureClass.UnionFeatureToOneGeometry(ESRI.ArcGIS.Carto.IFeatureLayer)">
+            <summary>
+            将矢量图层中所有要素的几何体进行合并操作得到一个新几何体。
+            </summary>
+            <param name="featureLayer">输入矢量图层</param>
+            <returns>合并后的新几何体</returns>
+        </member>
+        <member name="T:LayerProcess.AttributeTable.AttributeTableClass">
+            <summary>
+            属性表
+            </summary>
+        </member>
+        <member name="M:LayerProcess.AttributeTable.AttributeTableClass.ConvertFieldType(ESRI.ArcGIS.Geodatabase.esriFieldType)">
+            <summary>
+            将GeoDatabase字段类型转换成.Net相应的数据类型
+            </summary>
+            <param name="fieldType">字段类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.AttributeTable.AttributeTableClass.AddTableColumnsByField(ESRI.ArcGIS.Geodatabase.IField,System.Data.DataTable)">
+            <summary>
+            根据字段属性设置数据表的列属性
+            </summary>
+            <param name="field">字段</param>
+            <param name="table">数据表</param>
+            <returns>数据表</returns>
+        </member>
+        <member name="M:LayerProcess.AttributeTable.AttributeTableClass.GetAttributeTable(ESRI.ArcGIS.Carto.ILayer,ESRI.ArcGIS.Geodatabase.IQueryFilter2,System.Int32)">
+            <summary>
+            获取图层的属性表
+            </summary>
+            <param name="layer">图层</param>
+            <param name="queryFilter2">查询条件</param>
+            <param name="rowCount">显示的行数</param>
+            <returns>属性表</returns>
+        </member>
+        <member name="M:LayerProcess.AttributeTable.AttributeTableClass.GetAttributeTable(ESRI.ArcGIS.Carto.ILayer,System.Collections.Generic.HashSet{System.String},ESRI.ArcGIS.Geodatabase.IQueryFilter2,System.Int32)">
+            <summary>
+            获取图层指定字段名称的属性表
+            </summary>
+            <param name="layer">图层</param>
+            <param name="queryFilter2">查询条件</param>
+            <param name="rowCount">显示的行数</param>
+            <param name="inFieldName">指定字段名称</param>
+            <returns>属性表</returns>
+        </member>
+        <member name="M:LayerProcess.AttributeTable.AttributeTableClass.GetAttributeTable(ESRI.ArcGIS.Carto.ILayer,System.Collections.Generic.Dictionary{System.String,System.Int32},ESRI.ArcGIS.Geodatabase.IQueryFilter2,System.Int32)">
+            <summary>
+            获取图层指定字段名称的属性表
+            </summary>
+            <param name="layer">图层</param>
+            <param name="queryFilter2">查询条件</param>
+            <param name="rowCount">显示的行数</param>
+            <param name="inFieldName">指定字段名称</param>
+            <returns>属性表</returns>
+        </member>
+        <member name="M:LayerProcess.AttributeTable.AttributeTableClass.GetAttributeTableByITable(ESRI.ArcGIS.Geodatabase.ITable,System.String,ESRI.ArcGIS.Geodatabase.IQueryFilter2,System.Int32)">
+            <summary>
+            获取空间表格的属性表
+            </summary>
+            <param name="iTable">空间表格</param>
+            <param name="shapeType">图层几何类型</param>
+            <param name="queryFilter2">查询条件</param>
+            <param name="rowCount">显示的行数</param>
+            <returns>属性表</returns>
+        </member>
+        <member name="M:LayerProcess.AttributeTable.AttributeTableClass.GetAttributeTableByITable(ESRI.ArcGIS.Geodatabase.ITable,System.Collections.Generic.HashSet{System.String},System.String,ESRI.ArcGIS.Geodatabase.IQueryFilter2,System.Int32)">
+            <summary>
+            获取空间表格指定字段名称的属性表
+            </summary>
+            <param name="iTable">空间表格</param>
+            <param name="queryFilter2">查询条件</param>
+            <param name="shapeType">图层几何类型</param>
+            <param name="rowCount">显示的行数</param>
+            <param name="selectFieldName">指定字段名称</param>
+            <returns>属性表</returns>
+        </member>
+        <member name="M:LayerProcess.AttributeTable.AttributeTableClass.GetAttributeTable(System.Windows.Forms.ComboBox,System.Collections.Generic.List{System.String})">
+            <summary>
+            获取属性表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.AttributeTable.AttributeTableClass.GetITableByLayer(ESRI.ArcGIS.Carto.ILayer)">
+            <summary>
+            根据图层获取空间表格
+            </summary>
+            <param name="layer">图层</param>
+            <returns>空间表格</returns>
+        </member>
+        <member name="M:LayerProcess.AttributeTable.AttributeTableClass.SetDataRow(ESRI.ArcGIS.Geodatabase.IRow,System.Data.DataRow,System.Collections.Generic.HashSet{System.String},System.String)">
+            <summary>
+            设置属性表的行数据
+            </summary>
+            <param name="pRow">图层行</param>
+            <param name="pDataRow">表格行</param>
+            <param name="selectFieldName">选中字段</param>
+            <param name="shapeType">图层几何类型</param>
+        </member>
+        <member name="M:LayerProcess.AttributeTable.AttributeTableClass.IsFieldContainInList(ESRI.ArcGIS.Geodatabase.IField,System.Collections.Generic.HashSet{System.String})">
+            <summary>
+            字段名称是否在指定的字段名称列表中
+            </summary>
+            <param name="field">字段</param>
+            <param name="selectFieldName">指定的字段名称列表</param>
+            <returns></returns>
+        </member>
+        <member name="T:LayerProcess.SpatialReferenceClass">
+            <summary>
+            空间参考
+            </summary>
+        </member>
+        <member name="M:LayerProcess.SpatialReferenceClass.GetProjectCoord(ESRI.ArcGIS.Geometry.ISpatialReference,System.Double,System.Double)">
+            <summary>
+            将经纬度点转换为平面坐标
+            </summary>
+            <param name="spatialReference">平面坐标参考系</param>
+            <param name="x">X坐标</param>
+            <param name="y">Y坐标</param>
+            <returns>平面坐标点</returns>
+        </member>
+        <member name="M:LayerProcess.SpatialReferenceClass.GetPointCompareProject(ESRI.ArcGIS.Geometry.ISpatialReference,System.Double,System.Double,System.Double)">
+            <summary>
+            与对照坐标不同，则将经纬度点转换为平面坐标
+            </summary>
+            <param name="spatialReference">平面坐标参考系</param>
+            <param name="x">X坐标</param>
+            <param name="y">Y坐标</param>
+            <param name="compare">对照坐标</param>
+            <returns>平面坐标点</returns>
+        </member>
+        <member name="M:LayerProcess.SpatialReferenceClass.GetGeoCoord(ESRI.ArcGIS.Geometry.ISpatialReference,System.Double,System.Double)">
+            <summary>
+            将平面坐标转换为经纬度
+            </summary>
+            <param name="spatialReference">空间参考</param>
+            <param name="x">X坐标</param>
+            <param name="y">Y坐标</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.SpatialReferenceClass.SetSpatialReference(ESRI.ArcGIS.Geometry.ISpatialReference,ESRI.ArcGIS.Geometry.ISpatialReference,System.Double,System.Double)">
+            <summary>
+            设置空间参考
+            </summary>
+            <param name="spatialReference"></param>
+            <param name="projectSpatialReference"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.SpatialReferenceClass.GetPoint(System.Double,System.Double)">
+            <summary>
+            获取点
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.SpatialReferenceClass.GetGeographicCoordinateSystem">
+            <summary>
+            获取地理坐标系
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.SpatialReferenceClass.GetProjectedReference(System.String)">
+            <summary>
+            根据图层范围获取WGS_UTM_Zone 投影坐标系
+            </summary>
+            <param name="filePath">图层文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.SpatialReferenceClass.GetRasterProjectedReference(ESRI.ArcGIS.Geodatabase.IRaster)">
+            <summary>
+            获取WGS_UTM_Zone 投影坐标系
+            </summary>
+            <param name="raster">输入栅格</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.SpatialReferenceClass.ComputeProjectedSpatialReference(ESRI.ArcGIS.Geometry.IEnvelope)">
+            <summary>
+            计算空间参考
+            </summary>
+            <param name="envelope"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.SpatialReferenceClass.IsProjectedSpatialReference(ESRI.ArcGIS.Geometry.IEnvelope)">
+            <summary>
+            是投影坐标
+            </summary>
+            <param name="envelope"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LayerProcess.RasterProcess.CopyRasterDatasetClass">
+            <summary>
+            复制栅格数据集
+            </summary>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.CopyRasterDatasetClass.CopyDatasetAsRasterLayer(ESRI.ArcGIS.Geodatabase.IDataset,System.String)">
+            <summary>
+            复制数据集为栅格图层
+            </summary>
+            <param name="dataset">数据集</param>
+            <param name="outFile">输出路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.CopyRasterDatasetClass.CannotCopy(ESRI.ArcGIS.Geodatabase.IDataset,System.String)">
+            <summary>
+            不能复制
+            </summary>
+            <param name="dataset"></param>
+            <param name="outFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.CopyRasterDatasetClass.CopyAsTempRasterDataset(System.String)">
+            <summary>
+            复制获取临时栅格数据集
+            </summary>
+            <param name="rasterLayerFile">栅格图层文件</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.CopyRasterDatasetClass.CopyAsTempRasterLayer(System.String)">
+            <summary>
+            复制获取临时栅格数据集
+            </summary>
+            <param name="rasterLayerFile">栅格图层文件</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.CopyRasterDatasetClass.CreateNewTempFile">
+            <summary>
+            创建临时栅格输出文件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.CopyRasterDatasetClass.CopyRasterLayer(System.String,System.String)">
+            <summary>
+            复制栅格图层
+            </summary>
+            <param name="inFile">输入路径</param>
+            <param name="outFile">输出路径</param>
+        </member>
+        <member name="T:LayerProcess.Field.LayerFieldInfoClass">
+            <summary>
+            图层字段信息
+            </summary>
+        </member>
+        <member name="M:LayerProcess.Field.LayerFieldInfoClass.GetFieldTypeByChinese(System.String)">
+            <summary>
+            根据中文获取字段类型
+            </summary>
+            <param name="fieldType">字段类型名</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.LayerFieldInfoClass.GetFieldTypeByEnglish(System.String)">
+            <summary>
+            根据英文获取字段类型
+            </summary>
+            <param name="fieldType">字段类型名</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.LayerFieldInfoClass.GetFieldByName(ESRI.ArcGIS.Geodatabase.ITable,System.String)">
+            <summary>
+            根据名称获取字段
+            </summary>
+            <param name="iTable"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.LayerFieldInfoClass.GetFieldByName(ESRI.ArcGIS.Carto.ILayer,System.String)">
+            <summary>
+            根据名称获取字段
+            </summary>
+            <param name="layer">图层</param>
+            <param name="fieldName">字段名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.LayerFieldInfoClass.GetFieldIndex(ESRI.ArcGIS.Carto.ILayer,System.String)">
+            <summary>
+            获取字段索引
+            </summary>
+            <param name="layer"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.LayerFieldInfoClass.GetLayerFieldUniqueValue(ESRI.ArcGIS.Carto.ILayer,System.String)">
+            <summary>
+            获取图层字段的唯一值
+            </summary>
+            <param name="layer">图层</param>
+            <param name="fieldName">字段名称</param>
+            <returns>唯一值</returns>
+        </member>
+        <member name="M:LayerProcess.Field.LayerFieldInfoClass.GetDataStatistics(ESRI.ArcGIS.Carto.ILayer,System.String)">
+            <summary>
+            获取图层表格数据统计对象
+            </summary>
+            <param name="layer"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.LayerFieldInfoClass.IsLayerHaveField(ESRI.ArcGIS.Carto.ILayer,System.String)">
+            <summary>
+            判断图层是否拥有某个字段
+            </summary>
+            <param name="layer">图层</param>
+            <param name="fieldName">字段名</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.LayerFieldInfoClass.IsTableHasFieldType(ESRI.ArcGIS.Geodatabase.ITable,ESRI.ArcGIS.Geodatabase.esriFieldType)">
+            <summary>
+            判断空间表格是否存在指定类型的字段
+            </summary>
+            <param name="iTable">空间表格</param>
+            <param name="fieldType">指定类型</param>
+            <returns></returns>
+        </member>
+        <member name="T:LayerProcess.RasterProcess.RasterTableFunction">
+            <summary>
+            栅格属性表函数
+            </summary>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterTableFunction.GetRasterTableByGeoDataset(ESRI.ArcGIS.Geodatabase.IGeoDataset)">
+            <summary>
+            获取栅格数据集的属性表
+            </summary>
+            <param name="geoDataset">输入几何数据集</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterTableFunction.GetRasterTableByLayer(ESRI.ArcGIS.Carto.ILayer,ESRI.ArcGIS.Geodatabase.IQueryFilter2)">
+            <summary>
+            获取栅格图层的属性表
+            </summary>
+            <param name="layer">栅格图层</param>
+            <param name="queryFilter2">过滤条件</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterTableFunction.BuildRasterAttributeTable(ESRI.ArcGIS.Carto.ILayer)">
+            <summary>
+            构建栅格图层属性表
+            </summary>
+            <param name="layer">图层</param>
+            <returns>属性表ITable</returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterTableFunction.BuildRasterAttributeTable(ESRI.ArcGIS.Geodatabase.IRasterDataset)">
+            <summary>
+            建立栅格图层属性表
+            </summary>
+            <param name="rasterDataset">栅格数据集</param>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterTableFunction.GetTableByRaster(ESRI.ArcGIS.Geodatabase.IRaster)">
+            <summary>
+            根据栅格获取空间表格
+            </summary>
+            <param name="raster">栅格</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterTableFunction.DeleteRasterStringField(ESRI.ArcGIS.Carto.IRasterLayer)">
+            <summary>  
+            删除栅格图层字段（字符串字段）  
+            </summary>  
+            <param name="rasterLayer">栅格图层</param>  
+            <returns></returns>  
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterTableFunction.IsRasterLayerHaveTable(ESRI.ArcGIS.Geodatabase.IRaster)">
+            <summary>
+            判断栅格图层是否拥有属性表
+            </summary>
+            <param name="raster">栅格</param>
+            <returns>是否拥有属性表</returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterTableFunction.IsFloatPixel(ESRI.ArcGIS.Geodatabase.IRaster)">
+            <summary>
+            栅格像元值是浮点型
+            </summary>
+            <param name="raster"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterTableFunction.GetRasterBandAttributeTable(ESRI.ArcGIS.Geodatabase.IRaster)">
+            <summary>
+            获取栅格波段中的属性表
+            </summary>
+            <param name="raster"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.RasterProcess.RasterTableFunction.BuildRasterAttributeTable(ESRI.ArcGIS.Carto.IRasterLayer)">
+            <summary>
+            建立默认属性表
+            </summary>
+            <param name="rasterLayer"></param>
+        </member>
+        <member name="T:LayerProcess.FeatureProcess.CopyDatasetClass">
+            <summary>
+            复制数据集
+            </summary>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CopyDatasetClass.CopyDatasetAsFeatureLayer(ESRI.ArcGIS.Geodatabase.IDataset,System.String)">
+            <summary>
+            数据集复制为矢量图层
+            </summary>
+            <param name="dataset">数据集</param>
+            <param name="outFile">输出文件</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CopyDatasetClass.CopyGeoDatasetAsFeatureLayer(ESRI.ArcGIS.Geodatabase.IGeoDataset,System.String)">
+            <summary>
+            几何数据集复制为矢量图层
+            </summary>
+            <param name="geoDataset">几何数据集</param>
+            <param name="outFile">输出文件</param>
+        </member>
+        <member name="T:LayerProcess.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:LayerProcess.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:LayerProcess.Properties.Resources.Culture">
+            <summary>
+              使用此强类型资源类，为所有资源查找
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="T:LayerProcess.AllLayerProcess.LayerInfoClass">
+            <summary>
+            图层信息
+            </summary>
+        </member>
+        <member name="M:LayerProcess.AllLayerProcess.LayerInfoClass.GetFilePathFromList(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            根据图层名和文件路径集合，获取文件路径
+            </summary>
+            <param name="selectFile">图层名或文件路径</param>
+            <param name="filePaths">文件路径集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.AllLayerProcess.LayerInfoClass.GetFeatureOrRasterPath(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            根据图层名获取矢量或栅格文件路径
+            </summary>
+            <param name="selectFile">图层名</param>
+            <param name="featureFile">矢量文件集合</param>
+            <param name="rasterFile">栅格文件集合</param>
+            <returns>文件路径</returns>
+        </member>
+        <member name="M:LayerProcess.AllLayerProcess.LayerInfoClass.GetLayerByFile(System.String)">
+            <summary>
+            根据文件获取图层
+            </summary>
+            <param name="filePath">文件</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.AllLayerProcess.LayerInfoClass.GetLayerByName(ESRI.ArcGIS.Carto.IMap,System.String)">
+            <summary>
+            在地图中根据图层名称获得图层。
+            </summary>
+            <param name="map">地图</param>
+            <param name="layerName">图层名称</param>
+            <returns>ILayer接口的图层对象</returns>
+        </member>
+        <member name="M:LayerProcess.AllLayerProcess.LayerInfoClass.GetLayerFormLayerList(System.String,System.Collections.Generic.List{ESRI.ArcGIS.Carto.IFeatureLayer},System.Collections.Generic.List{ESRI.ArcGIS.Carto.IRasterLayer})">
+            <summary>
+            根据图层集合获得图层。
+            </summary>
+            <param name="layerName">图层名称</param>
+            <param name="featureLayers">矢量图层</param>
+            <param name="rasterLayers">栅格图层</param>
+            <returns></returns>
+        </member>
+        <member name="T:LayerProcess.FeatureProcess.CopyFeatureLayerClass">
+            <summary>
+            复制要素图层
+            </summary>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CopyFeatureLayerClass.#ctor(System.String,System.String)">
+            <summary>
+            复制要素图层
+            </summary>
+            <param name="inVectorFile"></param>
+            <param name="outFile"></param>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CopyFeatureLayerClass.CopyLayer">
+            <summary>
+            获取复制图层
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CopyFeatureLayerClass.CopyLayer(System.String,System.String)">
+            <summary>
+            复制图层
+            </summary>
+            <param name="inFile">输入文件</param>
+            <param name="outFile">输出文件</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CopyFeatureLayerClass.DeleteFeaturesByTable(System.Data.DataTable)">
+            <summary>
+            根据新属性表删除要素
+            </summary>
+            <param name="newAttributeTable">新属性表</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CopyFeatureLayerClass.DeleteFeaturesByQuery(System.String)">
+            <summary>
+            根据查询语句删除要素
+            </summary>
+            <param name="whereClause"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CopyFeatureLayerClass.AddFields(System.Data.DataTable,System.Collections.Generic.List{System.String})">
+            <summary>
+            删除要素和添加字段
+            </summary>
+            <param name="newAttributeTable"></param>
+            <param name="fieldNames"></param>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CopyFeatureLayerClass.AddNewFiled(System.Data.DataTable,System.Collections.Generic.List{System.String})">
+            <summary>
+            添加新字段
+            </summary>
+            <param name="newAttributeTable"></param>
+            <param name="fieldNames"></param>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CopyFeatureLayerClass.DeleteFeatures(System.Data.DataTable)">
+            <summary>
+            删除要素
+            </summary>
+            <param name="newAttributeTable">新属性表</param>
+        </member>
+        <member name="T:LayerProcess.Field.ChangeFieldClass">
+            <summary>
+            修改字段
+            </summary>
+        </member>
+        <member name="M:LayerProcess.Field.ChangeFieldClass.#ctor(ESRI.ArcGIS.Carto.ILayer)">
+            <summary>
+            修改字段
+            </summary>
+            <param name="layer"></param>
+        </member>
+        <member name="M:LayerProcess.Field.ChangeFieldClass.RenameField(System.Int32,System.String)">
+            <summary>
+            字段重命名
+            </summary>
+            <param name="oldFieldIndex">字段位置</param>
+            <param name="newName">新名称</param>
+        </member>
+        <member name="M:LayerProcess.Field.ChangeFieldClass.GetAndChangeFieldName(ESRI.ArcGIS.Geodatabase.IField,System.String)">
+            <summary>
+            获取字段，并改变名称
+            </summary>
+            <param name="oldField">旧字段</param>
+            <param name="fieldName">新字段名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.Field.ChangeFieldClass.ChangeNameAndType(ESRI.ArcGIS.Geodatabase.IField,System.String,ESRI.ArcGIS.Geodatabase.esriFieldType,System.Boolean)">
+            <summary>
+            修改名称和类型
+            </summary>
+            <param name="oldField"></param>
+            <param name="newName"></param>
+            <param name="fieldType"></param>
+            <param name="isDeleteOldField"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LayerProcess.FeatureProcess.FeatureInfoClass">
+            <summary>
+            矢量信息
+            </summary>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.FeatureInfoClass.GetFeatureClass(System.String)">
+            <summary>
+            获取要素集合
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>要素集合</returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.FeatureInfoClass.GetFeatureLayer(System.String)">
+            <summary>
+            根据文件路径获取要素图层
+            </summary>
+            <param name="filePath">文件路径</param>
+            <returns>要素图层</returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.FeatureInfoClass.GetFeatureLayer(ESRI.ArcGIS.Geodatabase.IFeatureClass)">
+            <summary>
+            根据要素集合获取要素图层
+            </summary>
+            <param name="featureClass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.FeatureInfoClass.GetFeatureLayerByDataset(ESRI.ArcGIS.Geodatabase.IDataset)">
+            <summary>
+            通过数据集获取矢量图层
+            </summary>
+            <param name="dataset">数据集</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.FeatureInfoClass.GetFeatureLayerByName(System.String,System.Collections.Generic.List{ESRI.ArcGIS.Carto.IFeatureLayer})">
+            <summary>
+            根据图层名从图层集合中获取图层
+            </summary>
+            <param name="layerName">图层名</param>
+            <param name="featureLayers">图层集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.FeatureInfoClass.GetShapefileWorkspace(System.String)">
+            <summary>
+            获取矢量工作空间
+            </summary>
+            <param name="filePath">矢量文件路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.FeatureInfoClass.GetShapeType(ESRI.ArcGIS.Carto.ILayer)">
+            <summary>
+            获得图层的Shape类型
+            </summary>
+            <param name="pLayer">图层</param>
+            <returns>Shape类型</returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.FeatureInfoClass.GetFeatureFilePath(ESRI.ArcGIS.Carto.IFeatureLayer)">
+            <summary>
+            获取矢量图层文件路径
+            </summary>
+            <param name="inFeatureLayer">输入矢量图层</param>
+            <returns>文件路径</returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.FeatureInfoClass.IsFeatureFile(System.String)">
+            <summary>
+            是否是要素图层路径
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.FeatureInfoClass.IsNotPointLayer(ESRI.ArcGIS.Carto.IFeatureLayer)">
+            <summary>
+            不是点图层
+            </summary>
+            <param name="feaLatLayer">图层</param>
+            <returns></returns>
+        </member>
+        <member name="T:LayerProcess.FeatureProcess.FeatureAreaClass">
+            <summary>
+            要素面积
+            </summary>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.FeatureAreaClass.ComputeFeatureFidAndArea(System.String)">
+            <summary>
+            计算要素FID和面积
+            </summary>
+            <param name="vectorFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.FeatureAreaClass.ComputeAreaByCursor(ESRI.ArcGIS.Geodatabase.IFeatureCursor)">
+            <summary>
+            计算FID和加权面积
+            </summary>
+            <param name="featureCursor">要素游标</param>
+            <returns></returns>
+        </member>
+        <member name="T:LayerProcess.FeatureProcess.CreateNewFieldClass">
+            <summary>
+            创建新的字段
+            </summary>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFieldClass.#ctor(ESRI.ArcGIS.Carto.IFeatureLayer,System.Data.DataTable)">
+            <summary>
+            创建新的字段
+            </summary>
+            <param name="inFeatureLayer"></param>
+            <param name="newFieldTable"></param>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFieldClass.#ctor(System.String,System.Data.DataTable)">
+            <summary>
+            创建新的字段
+            </summary>
+            <param name="vectorFile"></param>
+            <param name="newFieldTable"></param>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFieldClass.AddNewFiled(System.String,ESRI.ArcGIS.Geodatabase.esriFieldType)">
+            <summary>
+            添加新字段
+            </summary>
+            <param name="fieldName">字段名称</param>
+            <param name="fieldType">字段类型</param>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFieldClass.AddNewFields(System.Collections.Generic.List{System.String},ESRI.ArcGIS.Geodatabase.esriFieldType)">
+            <summary>
+            添加多个新字段
+            </summary>
+            <param name="fieldNames"></param>
+            <param name="fieldType">字段类型</param>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFieldClass.AddTableColumnByDictionary(System.String,System.String)">
+            <summary>
+            添加表格的数据到图层
+            </summary>
+            <param name="fieldName">字段名称</param>
+            <param name="columnName">列名称</param>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFieldClass.AddTableColumn(System.String,System.String)">
+            <summary>
+            添加表格的单列数据到图层
+            </summary>
+            <param name="fieldName">字段名称</param>
+            <param name="columnName">列名称</param>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFieldClass.AddTableColumns(System.Collections.Generic.List{System.String})">
+            <summary>
+            添加表格的多列数据到图层
+            </summary>
+            <param name="fieldNames"></param>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFieldClass.GetFieldIndexAndName(ESRI.ArcGIS.Geodatabase.ITable,System.Collections.Generic.List{System.String})">
+            <summary>
+            获取字段索引和名称
+            </summary>
+            <param name="pTable"></param>
+            <param name="fieldNames"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LayerProcess.FeatureProcess.CreateNewFieldClass.GetQueryFilter(System.Collections.Generic.List{System.String})">
+            <summary>
+            获取过滤字段对象
+            </summary>
+            <param name="subFields">过滤字段</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
