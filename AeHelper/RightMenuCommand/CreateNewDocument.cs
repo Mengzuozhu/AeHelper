@@ -1,5 +1,5 @@
 ﻿using System.Windows.Forms;
-using AeHelper.AeDisplay.MapAndPageLayoutSynchApp;
+using AeHelper.AeControl.MapAndPageLayoutSynch;
 using ESRI.ArcGIS.ADF.BaseClasses;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Controls;

@@ -17,7 +17,7 @@ using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.SystemUI;
 
-namespace AeHelper.AeDisplay.MapAndPageLayoutSynchApp
+namespace AeHelper.AeControl.MapAndPageLayoutSynch
 {
     /// <summary>
     /// This class is used to synchronize a given PageLayoutControl and a MapControl.

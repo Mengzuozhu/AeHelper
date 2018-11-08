@@ -14,7 +14,7 @@ using System;
 using System.Collections;
 using ESRI.ArcGIS.Carto;
 
-namespace AeHelper.AeDisplay.MapAndPageLayoutSynchApp
+namespace AeHelper.AeControl.MapAndPageLayoutSynch
 {
     /// <summary>
     /// Implementation of interface IMaps which is eventually a collection of Maps

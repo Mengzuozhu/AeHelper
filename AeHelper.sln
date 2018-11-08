@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AeHelper", "AeHelper\AeHelper.csproj", "{EFB4A420-D31D-4552-A80F-249BE11EB549}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayerProcess", "LayerProcess\LayerProcess.csproj", "{F52AEDF0-D281-4FAD-AB6C-F2C39DCE56D9}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,16 +23,6 @@ Global
 		{EFB4A420-D31D-4552-A80F-249BE11EB549}.Release|Mixed Platforms.Build.0 = Release|x86
 		{EFB4A420-D31D-4552-A80F-249BE11EB549}.Release|x86.ActiveCfg = Release|x86
 		{EFB4A420-D31D-4552-A80F-249BE11EB549}.Release|x86.Build.0 = Release|x86
-		{F52AEDF0-D281-4FAD-AB6C-F2C39DCE56D9}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{F52AEDF0-D281-4FAD-AB6C-F2C39DCE56D9}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{F52AEDF0-D281-4FAD-AB6C-F2C39DCE56D9}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{F52AEDF0-D281-4FAD-AB6C-F2C39DCE56D9}.Debug|x86.ActiveCfg = Debug|x86
-		{F52AEDF0-D281-4FAD-AB6C-F2C39DCE56D9}.Debug|x86.Build.0 = Debug|x86
-		{F52AEDF0-D281-4FAD-AB6C-F2C39DCE56D9}.Release|Any CPU.ActiveCfg = Release|x86
-		{F52AEDF0-D281-4FAD-AB6C-F2C39DCE56D9}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{F52AEDF0-D281-4FAD-AB6C-F2C39DCE56D9}.Release|Mixed Platforms.Build.0 = Release|x86
-		{F52AEDF0-D281-4FAD-AB6C-F2C39DCE56D9}.Release|x86.ActiveCfg = Release|x86
-		{F52AEDF0-D281-4FAD-AB6C-F2C39DCE56D9}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

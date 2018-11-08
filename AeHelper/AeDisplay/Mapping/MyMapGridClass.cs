@@ -66,7 +66,7 @@ namespace AeHelper.AeDisplay.Mapping
             ICartographicLineSymbol pLineSymbol = new CartographicLineSymbolClass();
             pLineSymbol.Cap = esriLineCapStyle.esriLCSButt;
             pLineSymbol.Width = 1;
-            pLineSymbol.Color = AeColorClass.GetRgbColor(0, 0, 0);  //黑色
+            pLineSymbol.Color = AeColor.GetRgbColor(0, 0, 0);  //黑色
             return pLineSymbol;
         }
 

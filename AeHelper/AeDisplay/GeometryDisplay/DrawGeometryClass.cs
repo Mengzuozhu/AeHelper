@@ -39,7 +39,7 @@ namespace AeHelper.AeDisplay.GeometryDisplay
         {
             ISimpleMarkerSymbol simpleMark = new SimpleMarkerSymbol();
             simpleMark.Size = 3;
-            simpleMark.Color = AeColorClass.GetRgbColor(255, 0, 0);
+            simpleMark.Color = AeColor.GetRgbColor(255, 0, 0);
             simpleMark.Style = esriSimpleMarkerStyle.esriSMSDiamond;
             return simpleMark;
         }
@@ -83,7 +83,7 @@ namespace AeHelper.AeDisplay.GeometryDisplay
         private static IFillSymbol GetFillSymbol()
         {
             //设置填充符号（实质为中间透明，边框带颜色）
-            IRgbColor pColor = AeColorClass.GetRgbColor(255, 0, 0);
+            IRgbColor pColor = AeColor.GetRgbColor(255, 0, 0);
             pColor.Transparency = 255;
             ILineSymbol pOutLine = new SimpleLineSymbolClass();
             pOutLine.Width = 1;

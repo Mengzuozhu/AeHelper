@@ -128,10 +128,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AeControl\ControlLayerInfo.cs" />
-    <Compile Include="AeDisplay\GeometryDisplay\AeColorClass.cs" />
+    <Compile Include="AeDisplay\GeometryDisplay\AeColor.cs" />
     <Compile Include="AeDisplay\GeometryDisplay\DrawGeometryClass.cs" />
-    <Compile Include="AeDisplay\MapAndPageLayoutSynchApp\ControlsSynchronizer.cs" />
-    <Compile Include="AeDisplay\MapAndPageLayoutSynchApp\Maps.cs" />
+    <Compile Include="AeControl\MapAndPageLayoutSynch\ControlsSynchronizer.cs" />
+    <Compile Include="AeControl\MapAndPageLayoutSynch\Maps.cs" />
     <Compile Include="AeDisplay\Mapping\ExportMapClass.cs" />
     <Compile Include="AeDisplay\Mapping\MappingClass.cs" />
     <Compile Include="AeDisplay\Mapping\MyLengendClass.cs" />

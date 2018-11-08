@@ -6,7 +6,7 @@ namespace AeHelper.AeDisplay.GeometryDisplay
     /// <summary>
     /// ArcEngine颜色
     /// </summary>
-    public class AeColorClass
+    public class AeColor
     {
         /// <summary>
         /// 获取RGB颜色

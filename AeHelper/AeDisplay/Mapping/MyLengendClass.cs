@@ -114,8 +114,8 @@ namespace AeHelper.AeDisplay.Mapping
             ISymbolBackground pSymbolBackground = new SymbolBackgroundClass();
             IFillSymbol pFillSymbol = new SimpleFillSymbolClass();
             ILineSymbol pLineSymbol = new SimpleLineSymbolClass();
-            pLineSymbol.Color = AeColorClass.GetRgbColor(0, 0, 0);
-            pFillSymbol.Color = AeColorClass.GetRgbColor(240, 240, 240);
+            pLineSymbol.Color = AeColor.GetRgbColor(0, 0, 0);
+            pFillSymbol.Color = AeColor.GetRgbColor(240, 240, 240);
             pFillSymbol.Outline = pLineSymbol;
             pSymbolBackground.FillSymbol = pFillSymbol;
             return pSymbolBackground;
