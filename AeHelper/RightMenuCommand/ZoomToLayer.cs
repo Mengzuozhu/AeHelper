@@ -22,17 +22,20 @@ namespace AeHelper.RightMenuCommand
             selectLayer = layer;
         }
 
+        /// <inheritdoc />
         public override void OnClick()
         {
             if (selectLayer == null) return;
             mapControl.Extent = selectLayer.AreaOfInterest;
         }
 
+        /// <inheritdoc />
         public override void OnCreate(object hook)
         {
             mapControl = hook as IMapControl3;
         }
 
+        /// <inheritdoc />
         public override bool Enabled
         {
             get

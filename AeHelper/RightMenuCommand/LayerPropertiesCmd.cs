@@ -70,6 +70,7 @@ namespace AeHelper.RightMenuCommand
         ILayer currentLayer;
         ITOCControl2 tocControl;
 
+        /// <inheritdoc />
         public LayerPropertiesCmd(ITOCControl2 mTocControl, ILayer pLayer)
         {
             base.m_category = "ControlsApplication";

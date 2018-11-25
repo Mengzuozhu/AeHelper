@@ -8,7 +8,7 @@ namespace AeHelper.LayerProcess.FieldHelper
     /// <summary>
     /// 字段名称
     /// </summary>
-    public class FieldNameClass
+    public class FieldNameHelper
     {
         /// <summary>
         /// 获取指定类型的字段名称
@@ -223,7 +223,7 @@ namespace AeHelper.LayerProcess.FieldHelper
         /// </summary>
         /// <param name="layer">图层</param>
         /// <returns></returns>
-        public static List<string> GetReadnolyFieldNames(ILayer layer)
+        public static List<string> GetReadonlyFieldNames(ILayer layer)
         {
             ITable iTable = AttributeTableClass.GetITableByLayer(layer);
             if (iTable == null) return null;

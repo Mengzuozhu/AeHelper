@@ -254,7 +254,7 @@ namespace AeHelper.LayerProcess.FeatureProcess
         private static bool IsSelectOrReadonlyField(List<string> selectFieldName, IField field)
         {
             //是选中或只读字段
-            return selectFieldName.Contains(field.Name) || !FieldNameClass.IsFieldEditable(field);
+            return selectFieldName.Contains(field.Name) || !FieldNameHelper.IsFieldEditable(field);
         }
 
         /// <summary>

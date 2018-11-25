@@ -16,7 +16,7 @@ namespace AeHelper.LayerProcess.FieldHelper
         /// <param name="fieldName">字段名称</param>
         public static void DeleteField(ITable iTable, string fieldName)
         {
-            IField field = LayerFieldInfoClass.GetFieldByName(iTable, fieldName);
+            IField field = LayerFieldInfo.GetFieldByName(iTable, fieldName);
             if (field == null) return;
             iTable.DeleteField(field);
         }

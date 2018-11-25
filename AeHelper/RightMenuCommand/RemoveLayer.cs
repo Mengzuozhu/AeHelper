@@ -10,24 +10,26 @@ namespace AeHelper.RightMenuCommand
     public sealed class RemoveLayer : BaseCommand
     {
         private IHookHelper hookHelper;
-        private ILayer layer;
+        private readonly ILayer layer;
 
+        /// <inheritdoc />
         public RemoveLayer(ILayer pLayer)
         {
             base.m_caption = "Remove layer";
             layer = pLayer;
         }
 
+        /// <inheritdoc />
         public override void OnClick()
         {
             hookHelper.FocusMap.DeleteLayer(layer);
         }
 
+        /// <inheritdoc />
         public override void OnCreate(object hook)
         {
             if (hook == null) return;
-            hookHelper = new HookHelperClass();
-            hookHelper.Hook = hook;
+            hookHelper = new HookHelperClass {Hook = hook};
         }
 
     }

@@ -158,8 +158,8 @@
     <Compile Include="LayerProcess\FeatureProcess\UnionFeatureClass.cs" />
     <Compile Include="LayerProcess\FieldHelper\ChangeFieldClass.cs" />
     <Compile Include="LayerProcess\FieldHelper\DeleteFieldClass.cs" />
-    <Compile Include="LayerProcess\FieldHelper\FieldNameClass.cs" />
-    <Compile Include="LayerProcess\FieldHelper\LayerFieldInfoClass.cs" />
+    <Compile Include="LayerProcess\FieldHelper\FieldNameHelper.cs" />
+    <Compile Include="LayerProcess\FieldHelper\LayerFieldInfo.cs" />
     <Compile Include="LayerProcess\FieldHelper\NewFieldClass.cs" />
     <Compile Include="LayerProcess\RasterProcess\CopyRasterDatasetClass.cs" />
     <Compile Include="LayerProcess\RasterProcess\RasterAnalysisEnvironmentClass.cs" />

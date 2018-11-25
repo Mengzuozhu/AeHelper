@@ -88,7 +88,7 @@ namespace AeHelper.LayerProcess.RasterProcess
             if (!IsRasterLayerHaveTable(rasterLayer.Raster)) return rasterLayer;
             ITable oldTable = (ITable)rasterLayer;
             //判断是否存在字符串字段
-            bool hasString = LayerFieldInfoClass.IsTableHasFieldType(oldTable, esriFieldType.esriFieldTypeString);
+            bool hasString = LayerFieldInfo.IsTableHasFieldType(oldTable, esriFieldType.esriFieldTypeString);
             //不需要删除，则返回原始图层
             if (!hasString) return rasterLayer;
             ILayer copyLayer = CopyRasterDatasetClass.CopyAsTempRasterLayer(rasterLayer.FilePath);

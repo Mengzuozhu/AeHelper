@@ -11,7 +11,7 @@ namespace AeHelper.RightMenuCommand
     /// </summary>
     public sealed class BuildAttributeTable : BaseCommand
     {
-        ILayer layer;
+        readonly ILayer layer;
 
         /// <summary>
         /// 创建属性表
@@ -23,6 +23,9 @@ namespace AeHelper.RightMenuCommand
             layer = pLayer;
         }
 
+        /// <summary>
+        /// 点击
+        /// </summary>
         public override void OnClick()
         {
             Task.Factory.StartNew(() =>
@@ -31,13 +34,19 @@ namespace AeHelper.RightMenuCommand
             });
         }
 
+        /// <summary>
+        /// 创建
+        /// </summary>
+        /// <param name="hook"></param>
         public override void OnCreate(object hook)
         {
 
 
         }
 
-        //判断右键菜单项是否灰色不可用
+        /// <summary>
+        /// 是否可用
+        /// </summary>
         public override bool Enabled
         {
             get

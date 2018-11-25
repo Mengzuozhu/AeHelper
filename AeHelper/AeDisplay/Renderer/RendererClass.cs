@@ -48,7 +48,7 @@ namespace AeHelper.AeDisplay.Renderer
         /// <param name="cboData">下拉框</param>
         public static void AddNumberFieldsToComboBox(IRasterLayer layer, ComboBox cboData)
         {
-            List<string> fields = FieldNameClass.GetIntegerOrFloatFieldNames(layer);
+            List<string> fields = FieldNameHelper.GetIntegerOrFloatFieldNames(layer);
             AddFieldsToComboBox(fields, cboData);
         }
 
@@ -59,7 +59,7 @@ namespace AeHelper.AeDisplay.Renderer
         /// <param name="cboData">下拉框</param>
         public static void AddNumberAndStringFieldsToComboBox(IRasterLayer layer, ComboBox cboData)
         {
-            List<string> fields = FieldNameClass.GetIntegerOrStringOrFloatFieldNames(layer);
+            List<string> fields = FieldNameHelper.GetIntegerOrStringOrFloatFieldNames(layer);
             AddFieldsToComboBox(fields, cboData);
         }
 

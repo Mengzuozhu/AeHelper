@@ -9,7 +9,7 @@ namespace AeHelper.LayerProcess.FieldHelper
     /// <summary>
     /// 图层字段信息
     /// </summary>
-    public class LayerFieldInfoClass
+    public class LayerFieldInfo
     {
         /// <summary>
         /// 根据中文获取字段类型
@@ -126,14 +126,15 @@ namespace AeHelper.LayerProcess.FieldHelper
             IDataStatistics dataStatistics = GetDataStatistics(layer, fieldName);
             if (dataStatistics == null) return null;
             //枚举唯一值
-            IEnumerator pEnumVar = dataStatistics.UniqueValues;
+            IEnumerator enumerator = dataStatistics.UniqueValues;
             List<string> value = new List<string>();
-            pEnumVar.Reset(); //将游标重置到第一个成员前面
-            while (pEnumVar.MoveNext()) //将游标的内部位置向前移动
+            enumerator.Reset(); //将游标重置到第一个成员前面
+            while (enumerator.MoveNext()) //将游标的内部位置向前移动
             {
-                if (pEnumVar.Current != null)
+                object current = enumerator.Current;
+                if (current != null)
                 {
-                    value.Add(pEnumVar.Current.ToString()); //获取当前的项（只读属性）
+                    value.Add(current.ToString());
                 }
             }
             return value;

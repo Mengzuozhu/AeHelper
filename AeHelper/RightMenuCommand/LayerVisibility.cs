@@ -10,11 +10,11 @@ namespace AeHelper.RightMenuCommand
     /// </summary>
     public sealed class LayerVisibility : BaseCommand, ICommandSubType
     {
-
         private IHookHelper m_hookHelper = new HookHelperClass();
 
         private long m_subType;
 
+        /// <inheritdoc />
         public override void OnClick()
         {
             for (int i = 0; i <= m_hookHelper.FocusMap.LayerCount - 1; i++)
@@ -26,21 +26,31 @@ namespace AeHelper.RightMenuCommand
             m_hookHelper.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography, null, null);
         }
 
+        /// <inheritdoc />
         public override void OnCreate(object hook)
         {
             m_hookHelper.Hook = hook;
         }
 
+        /// <summary>
+        /// 获取个数
+        /// </summary>
+        /// <returns></returns>
         public int GetCount()
         {
             return 2;
         }
 
+        /// <summary>
+        /// 设置子类型
+        /// </summary>
+        /// <param name="subType"></param>
         public void SetSubType(int subType)
         {
             m_subType = subType;
         }
 
+        /// <inheritdoc />
         public override string Caption
         {
             get
@@ -49,6 +59,9 @@ namespace AeHelper.RightMenuCommand
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public override bool Enabled
         {
             get
