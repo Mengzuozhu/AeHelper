@@ -166,7 +166,7 @@
     <Compile Include="LayerProcess\RasterProcess\RasterCalculatorClass.cs" />
     <Compile Include="LayerProcess\RasterProcess\RasterDataInfoClass.cs" />
     <Compile Include="LayerProcess\RasterProcess\RasterTableFunction.cs" />
-    <Compile Include="LayerProcess\RasterProcess\SaveAsRasterClass.cs" />
+    <Compile Include="LayerProcess\RasterProcess\RasterSaver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RightMenuCommand\BuildAttributeTable.cs" />
     <Compile Include="RightMenuCommand\CreateNewDocument.cs" />

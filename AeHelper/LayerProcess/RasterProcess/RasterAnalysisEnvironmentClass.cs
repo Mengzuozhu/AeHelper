@@ -1,6 +1,7 @@
 ﻿using ESRI.ArcGIS.DataSourcesRaster;
 using ESRI.ArcGIS.GeoAnalyst;
 using ESRI.ArcGIS.Geodatabase;
+using ESRI.ArcGIS.SpatialAnalyst;
 using ExternalProgram.FileAndDirectory;
 
 namespace AeHelper.LayerProcess.RasterProcess
@@ -29,16 +30,16 @@ namespace AeHelper.LayerProcess.RasterProcess
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="analysisOperation"></param>
-        /// <param name="raster"></param>
-        public static void SetAnalysisEnvironment<T>(T analysisOperation, IRaster raster)
+        /// <param name="referencedRaster"></param>
+        /// <param name="cellSize"></param>
+        public static void SetAnalysisEnvironment<T>(T analysisOperation, IRaster referencedRaster, object cellSize)
+            where T : IMapAlgebraOp
         {
             IRasterAnalysisEnvironment pRasAnalysisEnvironment = (IRasterAnalysisEnvironment)analysisOperation;
             //设置输出空间
             SetRasterAnalysisOutWorkspace(pRasAnalysisEnvironment);
             //设置输出参考栅格
-            IRasterProps rasterProps = (IRasterProps)raster;
-            //栅格的平均像元大小
-            object cellSize = GetOutCellSize(rasterProps);
+            IRasterProps rasterProps = (IRasterProps)referencedRaster;
             //装箱操作，必须设置，因为输入栅格可能空间参考等属性不同  
             //设置输出数据像元大小
             pRasAnalysisEnvironment.SetCellSize(esriRasterEnvSettingEnum.esriRasterEnvValue, ref cellSize);
@@ -46,16 +47,17 @@ namespace AeHelper.LayerProcess.RasterProcess
             object objExtent = rasterProps.Extent;
             pRasAnalysisEnvironment.SetExtent(esriRasterEnvSettingEnum.esriRasterEnvValue, ref objExtent);
             //设置输出数据空间参考
-            SetOutSpatialReference(raster, pRasAnalysisEnvironment);
+            SetOutSpatialReference(referencedRaster, pRasAnalysisEnvironment);
         }
 
         /// <summary>
         /// 获取输出像元大小
         /// </summary>
-        /// <param name="rasterProps"></param>
+        /// <param name="raster"></param>
         /// <returns></returns>
-        private static object GetOutCellSize(IRasterProps rasterProps)
+        public static double GetRasterCellSize(IRaster raster)
         {
+            IRasterProps rasterProps = (IRasterProps)raster;
             return (rasterProps.MeanCellSize().X + rasterProps.MeanCellSize().Y) / 2.0; //栅格的平均像元大小
         }
 

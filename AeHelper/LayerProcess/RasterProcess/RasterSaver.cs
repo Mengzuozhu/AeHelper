@@ -5,26 +5,26 @@ using ESRI.ArcGIS.Geodatabase;
 namespace AeHelper.LayerProcess.RasterProcess
 {
     /// <summary>
-    /// 栅格保存
+    /// 栅格保存器
     /// </summary>
-    public class SaveAsRasterClass
+    public class RasterSaver
     {
         /// <summary>
         /// 栅格保存为数据集（并创建金字塔）
         /// </summary>
         /// <param name="raster">栅格</param>
         /// <param name="outFile">输出文件</param>
-        public static void RasterSaveAsDataset(IRaster raster, string outFile)
+        public static void SaveRasterAsDataset(IRaster raster, string outFile)
         {
             //文件已存在，则返回
-            if (File.Exists(outFile)) return;
+            if (File.Exists(outFile) || raster == null) return;
             IRasterBandCollection pRasBandCol = raster as IRasterBandCollection;
             if (pRasBandCol == null) return;
             string fileName = Path.GetFileName(outFile);
             IWorkspace workspace = RasterDataInfoClass.GetRasterWorkspace(outFile);
             //保存波段集合为数据集
-            IDataset dataser = pRasBandCol.SaveAs(fileName, workspace, "IMAGINE Image");
-            ITemporaryDataset pRsGeo = dataser as ITemporaryDataset;
+            IDataset dataset = pRasBandCol.SaveAs(fileName, workspace, "IMAGINE Image");
+            ITemporaryDataset pRsGeo = dataset as ITemporaryDataset;
             if (pRsGeo != null && pRsGeo.IsTemporary())
             {
                 pRsGeo.MakePermanent();
@@ -39,7 +39,9 @@ namespace AeHelper.LayerProcess.RasterProcess
         /// <param name="outFile">输出文件</param>
         public static void GeoDatasetSaveAsDataset(IGeoDataset geoDataset, string outFile)
         {
-            RasterSaveAsDataset((IRaster)geoDataset, outFile);
+            if (geoDataset == null) return;
+
+            SaveRasterAsDataset((IRaster)geoDataset, outFile);
         }
 
         /// <summary>
@@ -47,8 +49,9 @@ namespace AeHelper.LayerProcess.RasterProcess
         /// </summary>
         /// <param name="raster">栅格</param>
         /// <param name="outFile">输出文件</param>
-        public static void SaveAsAndReleaseRaster(IRaster raster, string outFile)
+        public static void SaveRasterByISaveAs(IRaster raster, string outFile)
         {
+            if (raster == null) return;
             //保存结果，要用ISaveAs来保存
             ISaveAs saveAs = raster as ISaveAs;
             if (saveAs != null) saveAs.SaveAs(outFile, null, "IMAGINE Image");

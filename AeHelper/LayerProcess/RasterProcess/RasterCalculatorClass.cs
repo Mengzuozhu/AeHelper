@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.SpatialAnalyst;
 
@@ -28,11 +30,12 @@ namespace AeHelper.LayerProcess.RasterProcess
         /// </summary>
         /// <param name="nameAndRasters"></param>
         /// <param name="expression">计算表达式</param>
-        public static IRaster GetRasterCalculateResult(Dictionary<string, IRaster> nameAndRasters, string expression)
+        /// <param name="cellSize"></param>
+        public static IRaster GetRasterCalculateResult(Dictionary<string, IRaster> nameAndRasters, string expression,
+            double cellSize = 0)
         {
-            IMapAlgebraOp mapAlgebraOp = GetAlgebraOpWithMaxResolution(nameAndRasters);
+            IMapAlgebraOp mapAlgebraOp = GetAlgebraOp(nameAndRasters, cellSize);
             return RasterCalculate(mapAlgebraOp, nameAndRasters, expression);
-
         }
 
         /// <summary>
@@ -41,7 +44,7 @@ namespace AeHelper.LayerProcess.RasterProcess
         /// <param name="inRasters"></param>
         /// <param name="rasterName"></param>
         /// <returns></returns>
-        private static Dictionary<string, IRaster> GetNameAndRasters(IList<IRaster> inRasters, IList<string> rasterName)
+        public static Dictionary<string, IRaster> GetNameAndRasters(IList<IRaster> inRasters, IList<string> rasterName)
         {
             Dictionary<string, IRaster> nameAndRasters = new Dictionary<string, IRaster>();
             //获取唯一值,避免解绑失败
@@ -71,14 +74,20 @@ namespace AeHelper.LayerProcess.RasterProcess
                 mapAlgebraOp.BindRaster((IGeoDataset)item.Value, item.Key);
             }
 
-            //进行栅格计算
-            IRaster outRaster = (IRaster)mapAlgebraOp.Execute(expression);
-            //解绑
-            foreach (string key in nameAndRasters.Keys)
+            IRaster outRaster;
+            try
             {
-                mapAlgebraOp.UnbindRaster(key);
+                //进行栅格计算
+                outRaster = (IRaster)mapAlgebraOp.Execute(expression);
             }
-
+            finally
+            {
+                //解绑
+                foreach (string key in nameAndRasters.Keys)
+                {
+                    mapAlgebraOp.UnbindRaster(key);
+                }
+            }
             return outRaster;
         }
 
@@ -88,34 +97,35 @@ namespace AeHelper.LayerProcess.RasterProcess
         /// <param name="nameAndRasters"></param>
         /// <param name="expression">计算表达式</param>
         /// <param name="outFile"></param>
+        /// <param name="cellSize"></param>
         public static void RasterCalculate(Dictionary<string, IRaster> nameAndRasters, string expression,
-            string outFile)
+            string outFile, double cellSize = 0)
         {
-            IMapAlgebraOp mapAlgebraOp = GetAlgebraOpWithMaxResolution(nameAndRasters);
+            IMapAlgebraOp mapAlgebraOp = GetAlgebraOp(nameAndRasters, cellSize);
             IRaster outRaster = RasterCalculate(mapAlgebraOp, nameAndRasters, expression);
 
             if (outRaster == null) return;
-            SaveAsRasterClass.RasterSaveAsDataset(outRaster, outFile);
+            RasterSaver.SaveRasterAsDataset(outRaster, outFile);
         }
 
         /// <summary>
         /// 获取分辨率最高的栅格计算操作类
         /// </summary>
         /// <param name="nameAndRasters"></param>
+        /// <param name="cellSize"></param>
         /// <returns></returns>
-        private static IMapAlgebraOp GetAlgebraOpWithMaxResolution(Dictionary<string, IRaster> nameAndRasters)
+        private static IMapAlgebraOp GetAlgebraOp(Dictionary<string, IRaster> nameAndRasters, double cellSize = 0)
         {
-            List<IRaster> rasters = new List<IRaster>();
-            foreach (IRaster raster in nameAndRasters.Values)
-            {
-                rasters.Add(raster);
-            }
-
             //获取分辨率最高的栅格
-            IRaster minRaster = RasterDataInfoClass.GetMinCellSizeRaster(rasters);
+            IRaster minRaster = RasterDataInfoClass.GetMinCellSizeRaster(nameAndRasters.Values.ToList());
+            //分辨率等于0，则使用最高分辨率
+            if (Math.Abs(cellSize - 0) < 0.0001)
+            {
+                cellSize = RasterAnalysisEnvironmentClass.GetRasterCellSize(minRaster);
+            }
             //实例化栅格运算工具
             IMapAlgebraOp mapAlgebraOp = new RasterMapAlgebraOp() as IMapAlgebraOp;
-            RasterAnalysisEnvironmentClass.SetAnalysisEnvironment(mapAlgebraOp, minRaster); //以分辨率最高的栅格为参考对象
+            RasterAnalysisEnvironmentClass.SetAnalysisEnvironment(mapAlgebraOp, minRaster, cellSize); //以分辨率最高的栅格为参考对象
             return mapAlgebraOp;
         }
 
