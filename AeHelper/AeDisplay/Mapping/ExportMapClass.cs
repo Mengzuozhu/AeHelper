@@ -36,7 +36,7 @@ namespace AeHelper.AeDisplay.Mapping
             deviceRect = SetDeviceRectProperty(deviceRect, resolution, screenDispalyResolution);
             //设置输出图片的范围
             SetExportPixelBounds(pExport, deviceRect);
-            ITrackCancel pCancle = new CancelTrackerClass();  //可用ESC键取消操作
+            ITrackCancel pCancle = new CancelTrackerClass(); //可用ESC键取消操作
             activeView.Output(pExport.StartExporting(), resolution, ref deviceRect, pEnvelope, pCancle);
             Application.DoEvents();
             pExport.FinishExporting();
@@ -50,14 +50,15 @@ namespace AeHelper.AeDisplay.Mapping
         /// <param name="resolution">输出分辨率</param>
         /// <param name="screenDispalyResolution">屏幕分辨率</param>
         /// <returns></returns>
-        private static tagRECT SetDeviceRectProperty(tagRECT deviceRect, short resolution, double screenDispalyResolution)
+        private static tagRECT SetDeviceRectProperty(tagRECT deviceRect, short resolution,
+            double screenDispalyResolution)
         {
             int width = deviceRect.right - deviceRect.left;
             int higth = deviceRect.bottom - deviceRect.top;
             deviceRect.left = 0;
             deviceRect.top = 0;
-            deviceRect.right = width * resolution / (int)screenDispalyResolution;
-            deviceRect.bottom = higth * resolution / (int)screenDispalyResolution;
+            deviceRect.right = width * resolution / (int) screenDispalyResolution;
+            deviceRect.bottom = higth * resolution / (int) screenDispalyResolution;
             return deviceRect;
         }
 
@@ -80,8 +81,8 @@ namespace AeHelper.AeDisplay.Mapping
         public static IExport GetExport()
         {
             string filter =
-             "JPGE 文件(*.jpeg)|*.jpeg|BMP 文件(*.bmp)|*.bmp|GIF 文件(*.gif)|*.gif|TIF 文件(*.tif)|*.tif|PNG 文件(*.png)|*.png|PDF 文件(*.pdf)|*.pdf";
-            string outPath = SaveDialogClass.GetOutPath(filter);
+                "JPGE 文件(*.jpeg)|*.jpeg|BMP 文件(*.bmp)|*.bmp|GIF 文件(*.gif)|*.gif|TIF 文件(*.tif)|*.tif|PNG 文件(*.png)|*.png|PDF 文件(*.pdf)|*.pdf";
+            string outPath = FileAndFolderDialog.GetSaveFilePath(filter);
             if (string.IsNullOrEmpty(outPath)) return null;
             IExport pExport;
             string sType = System.IO.Path.GetExtension(outPath);
@@ -110,6 +111,7 @@ namespace AeHelper.AeDisplay.Mapping
                     pExport = new ExportJPEGClass();
                     break;
             }
+
             pExport.ExportFileName = outPath;
             return pExport;
         }
@@ -130,6 +132,5 @@ namespace AeHelper.AeDisplay.Mapping
             pEnvelope.PutCoords(0, dHeight, dWidth, 0);
             return pEnvelope;
         }
-
     }
 }

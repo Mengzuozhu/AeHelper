@@ -40,6 +40,7 @@ namespace AeHelper.LayerProcess.FieldHelper
                     outType = esriFieldType.esriFieldTypeDate;
                     break;
             }
+
             return outType;
         }
 
@@ -73,6 +74,7 @@ namespace AeHelper.LayerProcess.FieldHelper
                     fType = esriFieldType.esriFieldTypeDate;
                     break;
             }
+
             return fType;
         }
 
@@ -123,11 +125,12 @@ namespace AeHelper.LayerProcess.FieldHelper
         /// <returns>唯一值</returns>
         public static List<string> GetLayerFieldUniqueValue(ILayer layer, string fieldName)
         {
+            List<string> value = new List<string>();
             IDataStatistics dataStatistics = GetDataStatistics(layer, fieldName);
-            if (dataStatistics == null) return null;
+            if (dataStatistics == null) return value;
+
             //枚举唯一值
             IEnumerator enumerator = dataStatistics.UniqueValues;
-            List<string> value = new List<string>();
             enumerator.Reset(); //将游标重置到第一个成员前面
             while (enumerator.MoveNext()) //将游标的内部位置向前移动
             {
@@ -137,6 +140,7 @@ namespace AeHelper.LayerProcess.FieldHelper
                     value.Add(current.ToString());
                 }
             }
+
             return value;
         }
 
@@ -149,7 +153,8 @@ namespace AeHelper.LayerProcess.FieldHelper
         public static IDataStatistics GetDataStatistics(ILayer layer, string fieldName)
         {
             ITable iTable = AttributeTableClass.GetITableByLayer(layer);
-            if (iTable == null) return null;
+            if (iTable == null || iTable.FindField(fieldName) == -1) return null;
+
             IQueryFilter2 queryFilter = new QueryFilterClass();
             queryFilter.SubFields = fieldName;
             //获得游标 
@@ -187,8 +192,8 @@ namespace AeHelper.LayerProcess.FieldHelper
                 if (ofield.Type != fieldType) continue;
                 return true;
             }
+
             return false;
         }
-
     }
 }

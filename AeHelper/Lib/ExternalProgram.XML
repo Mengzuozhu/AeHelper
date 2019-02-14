@@ -20,39 +20,6 @@
               重写当前线程的 CurrentUICulture 属性。
             </summary>
         </member>
-        <member name="T:ExternalProgram.DialogHelper.SaveDialogClass">
-            <summary>
-            保存对话框
-            </summary>
-        </member>
-        <member name="M:ExternalProgram.DialogHelper.SaveDialogClass.GetOutPath(System.String,System.String,System.Boolean)">
-            <summary>
-            通过保存对话框获取文件保存路径
-            </summary>
-            <param name="filter">筛选器</param>
-            <param name="title">标题</param>
-            <param name="restoreDir">是否还原当前目录</param>
-            <returns></returns>
-        </member>
-        <member name="M:ExternalProgram.DialogHelper.SaveDialogClass.GetRasterSaveFile(System.String)">
-            <summary>
-            获取保存路径
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:ExternalProgram.DialogHelper.SaveDialogClass.GetVectorSaveFile(System.String)">
-            <summary>
-            通过保存对话框，获取矢量保存路径
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:ExternalProgram.DialogHelper.SaveDialogClass.SaveDialogFileName(System.Windows.Forms.SaveFileDialog)">
-            <summary>
-            返回打开对话框结果
-            </summary>
-            <param name="saveFileDialog"></param>
-            <returns></returns>
-        </member>
         <member name="T:ExternalProgram.FileAndDirectory.FileHelper">
             <summary>
             文件操作
@@ -89,37 +56,135 @@
             </summary>
             <param name="inFilePath"></param>
         </member>
-        <member name="T:ExternalProgram.FileAndDirectory.TempFile">
+        <member name="T:ExternalProgram.FileAndDirectory.DirectoryInfoHelper">
             <summary>
-            临时文件
+            目录信息
             </summary>
         </member>
-        <member name="M:ExternalProgram.FileAndDirectory.TempFile.CreateNewTempFile(System.String,System.String,System.String)">
+        <member name="M:ExternalProgram.FileAndDirectory.DirectoryInfoHelper.GetChildDirectoryName(System.String)">
             <summary>
-            在系统临时文件夹下，创建和获取临时文件路径
+            获取文件夹中的子文件夹名称
             </summary>
-            <param name="temFileName">临时文件名称</param>
-            <param name="directoryName">临时文件的父目录名称</param>
-            <param name="temExtension">后缀名</param>
+            <param name="directory">文件夹</param>
+            <returns>子文件夹名</returns>
+        </member>
+        <member name="M:ExternalProgram.FileAndDirectory.DirectoryInfoHelper.GetChildDirectoryPaths(System.String)">
+            <summary>
+            获取文件夹中的子文件夹路径
+            </summary>
+            <param name="directory">文件夹</param>
             <returns></returns>
         </member>
-        <member name="M:ExternalProgram.FileAndDirectory.TempFile.CreateNewTempDirectory(System.String)">
+        <member name="M:ExternalProgram.FileAndDirectory.DirectoryInfoHelper.GetChildFileNames(System.String)">
             <summary>
-            创建并获取新的临时目录
+            获取文件夹中的子文件名称
             </summary>
+            <param name="directory">文件夹</param>
+            <returns>文件名</returns>
+        </member>
+        <member name="M:ExternalProgram.FileAndDirectory.DirectoryInfoHelper.GetChildFilePaths(System.String,System.String)">
+            <summary>
+            获取文件夹中，指定匹配的文件路径
+            </summary>
+            <param name="directory">文件夹</param>
+            <param name="searchPattern">匹配模式(注意加上"*."符号)</param>
             <returns></returns>
         </member>
-        <member name="M:ExternalProgram.FileAndDirectory.TempFile.DeleteAndCreateTempDirectory(System.String)">
+        <member name="M:ExternalProgram.FileAndDirectory.DirectoryInfoHelper.IsDirectoryNotExist(System.String)">
             <summary>
-            删除自定义的临时文件夹
+            目录不存在
             </summary>
+            <param name="directory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ExternalProgram.FileAndDirectory.DirectoryInfoHelper.GetAllChildFilePaths(System.String,System.String)">
+            <summary>
+            获取文件夹及其子文件夹中，指定匹配的文件路径
+            </summary>
+            <param name="directory">文件夹</param>
+            <param name="searchPattern">匹配模式(注意加上"*."符号)</param>
+            <returns></returns>
+        </member>
+        <member name="M:ExternalProgram.FileAndDirectory.DirectoryInfoHelper.GetUniqueChildFilePaths(System.String,System.String)">
+            <summary>
+            获取文件夹下面指定匹配的唯一文件路径列表
+            </summary>
+            <param name="directory">文件夹</param>
+            <param name="searchPattern">匹配模式(注意加上"*."等符号)</param>
+        </member>
+        <member name="T:ExternalProgram.DialogHelper.DialogConst">
+            <summary>
+            对话框常量
+            </summary>
+        </member>
+        <member name="F:ExternalProgram.DialogHelper.DialogConst.RasterFilter">
+            <summary>
+            栅格文件筛选器
+            </summary>
+        </member>
+        <member name="F:ExternalProgram.DialogHelper.DialogConst.VectorFilter">
+            <summary>
+            矢量文件筛选器
+            </summary>
+        </member>
+        <member name="F:ExternalProgram.DialogHelper.DialogConst.RasterAndVectorFilter">
+            <summary>
+            栅格和矢量文件筛选器
+            </summary>
+        </member>
+        <member name="F:ExternalProgram.DialogHelper.DialogConst.MapDocumentFilter">
+            <summary>
+            地图文档文件筛选器
+            </summary>
+        </member>
+        <member name="F:ExternalProgram.DialogHelper.DialogConst.ExcelFilter">
+            <summary>
+            Excel文件筛选器
+            </summary>
+        </member>
+        <member name="T:ExternalProgram.Sql.SqlFunction">
+            <summary>
+            SQL函数
+            </summary>
+        </member>
+        <member name="M:ExternalProgram.Sql.SqlFunction.GetSqlSentence(System.String,System.String,System.String)">
+            <summary>
+            获取SQL查询语句
+            </summary>
+            <param name="field">查询字段</param>
+            <param name="symbol">查询符号</param>
+            <param name="target">查询对象</param>
+            <returns>SQL查询语句</returns>
+        </member>
+        <member name="M:ExternalProgram.Sql.SqlFunction.GetSqlConnection(System.String,System.String)">
+            <summary>
+            获取SQL数据库连接字符串
+            </summary>
+            <param name="dataSource">数据源</param>
+            <param name="catalog">数据目录</param>
+            <returns></returns>
+        </member>
+        <member name="M:ExternalProgram.Sql.SqlFunction.GetSqlTableSchema(System.String)">
+            <summary>
+            获取数据源架构信息，即数据库表信息
+            </summary>
+            <param name="connectionString">SQL连接字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:ExternalProgram.Sql.SqlFunction.GetDataTableBySqlConnection(System.String,System.String)">
+            <summary>
+            通过SQL连接获取表格
+            </summary>
+            <param name="connectionString">SQL连接字符串</param>
+            <param name="tableName">表格名称</param>
+            <returns></returns>
         </member>
         <member name="T:ExternalProgram.DialogHelper.FileAndFolderDialog">
             <summary>
             文件和文件夹对话框
             </summary>
         </member>
-        <member name="M:ExternalProgram.DialogHelper.FileAndFolderDialog.GetFilePath(System.String,System.String,System.Boolean,System.Boolean)">
+        <member name="M:ExternalProgram.DialogHelper.FileAndFolderDialog.GetOpenFilePath(System.String,System.String,System.Boolean,System.Boolean)">
             <summary>
             通过对话框，获取文件输入路径
             </summary>
@@ -177,9 +242,37 @@
             <param name="openFileDialog"></param>
             <returns></returns>
         </member>
+        <member name="M:ExternalProgram.DialogHelper.FileAndFolderDialog.GetSaveFilePath(System.String,System.String,System.Boolean)">
+            <summary>
+            通过保存对话框获取文件保存路径
+            </summary>
+            <param name="filter">筛选器</param>
+            <param name="title">标题</param>
+            <param name="restoreDir">是否还原当前目录</param>
+            <returns></returns>
+        </member>
+        <member name="M:ExternalProgram.DialogHelper.FileAndFolderDialog.GetRasterSaveFile(System.String)">
+            <summary>
+            获取保存路径
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExternalProgram.DialogHelper.FileAndFolderDialog.GetVectorSaveFile(System.String)">
+            <summary>
+            通过保存对话框，获取矢量保存路径
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExternalProgram.DialogHelper.FileAndFolderDialog.GetSaveDialogFileName(System.Windows.Forms.FileDialog)">
+            <summary>
+            返回打开对话框结果
+            </summary>
+            <param name="saveFileDialog"></param>
+            <returns></returns>
+        </member>
         <member name="M:ExternalProgram.DialogHelper.FileAndFolderDialog.OpenVectorFileToComboBox(System.Windows.Forms.ComboBox)">
             <summary>
-            打开矢量文件对话框，输出到下拉框
+            打开矢量文件对话框，添加路径到下拉框
             </summary>
             <param name="comboBox"></param>
         </member>
@@ -191,54 +284,30 @@
             <param name="caption"></param>
             <returns></returns>
         </member>
-        <member name="T:ExternalProgram.FileAndDirectory.DirectoryInfoHelper">
+        <member name="T:ExternalProgram.FileAndDirectory.TempFile">
             <summary>
-            目录信息
+            临时文件
             </summary>
         </member>
-        <member name="M:ExternalProgram.FileAndDirectory.DirectoryInfoHelper.GetChildDirectoryName(System.String)">
+        <member name="M:ExternalProgram.FileAndDirectory.TempFile.CreateNewTempFile(System.String,System.String,System.String)">
             <summary>
-            获取文件夹中的子文件夹名称
+            在系统临时文件夹下，创建和获取临时文件路径
             </summary>
-            <param name="rootDirectory">文件夹</param>
-            <returns>子文件夹名</returns>
-        </member>
-        <member name="M:ExternalProgram.FileAndDirectory.DirectoryInfoHelper.GetChildDirectoryPath(System.String)">
-            <summary>
-            获取文件夹中的子文件夹路径
-            </summary>
-            <param name="rootDirectory">文件夹</param>
+            <param name="temFileName">临时文件名称</param>
+            <param name="directoryName">临时文件的父目录名称</param>
+            <param name="temExtension">后缀名</param>
             <returns></returns>
         </member>
-        <member name="M:ExternalProgram.FileAndDirectory.DirectoryInfoHelper.GetChildFileName(System.String)">
+        <member name="M:ExternalProgram.FileAndDirectory.TempFile.CreateNewTempDirectory(System.String)">
             <summary>
-            获取文件夹中的子文件名称
+            创建并获取新的临时目录
             </summary>
-            <param name="rootDirectory">文件夹</param>
-            <returns>文件名</returns>
-        </member>
-        <member name="M:ExternalProgram.FileAndDirectory.DirectoryInfoHelper.GetChildFilePath(System.String,System.String)">
-            <summary>
-            获取文件夹中，指定匹配的文件路径
-            </summary>
-            <param name="rootDirectory">文件夹</param>
-            <param name="searchPattern">匹配模式(注意加上"*."符号)</param>
             <returns></returns>
         </member>
-        <member name="M:ExternalProgram.FileAndDirectory.DirectoryInfoHelper.GetAllChildFilePath(System.String,System.String)">
+        <member name="M:ExternalProgram.FileAndDirectory.TempFile.DeleteAndCreateTempDirectory(System.String)">
             <summary>
-            获取文件夹及其子文件夹中，指定匹配的文件路径
+            删除自定义的临时文件夹
             </summary>
-            <param name="rootDirectory">文件夹</param>
-            <param name="searchPattern">匹配模式(注意加上"*."符号)</param>
-            <returns></returns>
-        </member>
-        <member name="M:ExternalProgram.FileAndDirectory.DirectoryInfoHelper.GetUniqueChildFilePath(System.String,System.String)">
-            <summary>
-            获取文件夹下面指定匹配的唯一文件路径
-            </summary>
-            <param name="rootDirectory">文件夹</param>
-            <param name="searchPattern">匹配模式(注意加上"*."等符号)</param>
         </member>
         <member name="T:ExternalProgram.Excel.ExcelFunction">
             <summary>
@@ -299,43 +368,6 @@
             </summary>
             <param name="connectionString">连接字符串</param>
             <param name="cboSheet">sheet下拉框</param>
-        </member>
-        <member name="T:ExternalProgram.Sql.SqlFunction">
-            <summary>
-            SQL函数
-            </summary>
-        </member>
-        <member name="M:ExternalProgram.Sql.SqlFunction.GetSqlSentence(System.String,System.String,System.String)">
-            <summary>
-            获取SQL查询语句
-            </summary>
-            <param name="field">查询字段</param>
-            <param name="symbol">查询符号</param>
-            <param name="target">查询对象</param>
-            <returns>SQL查询语句</returns>
-        </member>
-        <member name="M:ExternalProgram.Sql.SqlFunction.GetSqlConnection(System.String,System.String)">
-            <summary>
-            获取SQL数据库连接字符串
-            </summary>
-            <param name="dataSource">数据源</param>
-            <param name="catalog">数据目录</param>
-            <returns></returns>
-        </member>
-        <member name="M:ExternalProgram.Sql.SqlFunction.GetSqlTableSchema(System.String)">
-            <summary>
-            获取数据源架构信息，即数据库表信息
-            </summary>
-            <param name="connectionString">SQL连接字符串</param>
-            <returns></returns>
-        </member>
-        <member name="M:ExternalProgram.Sql.SqlFunction.GetDataTableBySqlConnection(System.String,System.String)">
-            <summary>
-            通过SQL连接获取表格
-            </summary>
-            <param name="connectionString">SQL连接字符串</param>
-            <param name="tableName">表格名称</param>
-            <returns></returns>
         </member>
     </members>
 </doc>

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using ESRI.ArcGIS.Geodatabase;
 using ESRI.ArcGIS.SpatialAnalyst;
 
@@ -26,19 +24,6 @@ namespace AeHelper.LayerProcess.RasterProcess
         }
 
         /// <summary>
-        /// 获取栅格计算的栅格结果
-        /// </summary>
-        /// <param name="nameAndRasters"></param>
-        /// <param name="expression">计算表达式</param>
-        /// <param name="cellSize"></param>
-        public static IRaster GetRasterCalculateResult(Dictionary<string, IRaster> nameAndRasters, string expression,
-            double cellSize = 0)
-        {
-            IMapAlgebraOp mapAlgebraOp = GetAlgebraOp(nameAndRasters, cellSize);
-            return RasterCalculate(mapAlgebraOp, nameAndRasters, expression);
-        }
-
-        /// <summary>
         /// 获取名称和栅格
         /// </summary>
         /// <param name="inRasters"></param>
@@ -55,6 +40,20 @@ namespace AeHelper.LayerProcess.RasterProcess
             }
 
             return nameAndRasters;
+        }
+
+        /// <summary>
+        /// 获取栅格计算的栅格结果
+        /// </summary>
+        /// <param name="nameAndRasters"></param>
+        /// <param name="referencedRaster"></param>
+        /// <param name="expression">计算表达式</param>
+        /// <param name="cellSize"></param>
+        public static IRaster GetRasterCalculateResult(Dictionary<string, IRaster> nameAndRasters,
+            IRaster referencedRaster, string expression, double cellSize)
+        {
+            IMapAlgebraOp mapAlgebraOp = GetAlgebraOp(referencedRaster, cellSize);
+            return RasterCalculate(mapAlgebraOp, nameAndRasters, expression);
         }
 
         /// <summary>
@@ -88,6 +87,7 @@ namespace AeHelper.LayerProcess.RasterProcess
                     mapAlgebraOp.UnbindRaster(key);
                 }
             }
+
             return outRaster;
         }
 
@@ -95,13 +95,14 @@ namespace AeHelper.LayerProcess.RasterProcess
         /// 栅格计算
         /// </summary>
         /// <param name="nameAndRasters"></param>
+        /// <param name="referencedRaster"></param>
         /// <param name="expression">计算表达式</param>
         /// <param name="outFile"></param>
         /// <param name="cellSize"></param>
-        public static void RasterCalculate(Dictionary<string, IRaster> nameAndRasters, string expression,
-            string outFile, double cellSize = 0)
+        public static void RasterCalculate(Dictionary<string, IRaster> nameAndRasters, IRaster referencedRaster,
+            string expression, double cellSize, string outFile)
         {
-            IMapAlgebraOp mapAlgebraOp = GetAlgebraOp(nameAndRasters, cellSize);
+            IMapAlgebraOp mapAlgebraOp = GetAlgebraOp(referencedRaster, cellSize);
             IRaster outRaster = RasterCalculate(mapAlgebraOp, nameAndRasters, expression);
 
             if (outRaster == null) return;
@@ -111,23 +112,16 @@ namespace AeHelper.LayerProcess.RasterProcess
         /// <summary>
         /// 获取分辨率最高的栅格计算操作类
         /// </summary>
-        /// <param name="nameAndRasters"></param>
+        /// <param name="referencedRaster"></param>
         /// <param name="cellSize"></param>
         /// <returns></returns>
-        private static IMapAlgebraOp GetAlgebraOp(Dictionary<string, IRaster> nameAndRasters, double cellSize = 0)
+        private static IMapAlgebraOp GetAlgebraOp(IRaster referencedRaster, double cellSize)
         {
-            //获取分辨率最高的栅格
-            IRaster minRaster = RasterDataInfoClass.GetMinCellSizeRaster(nameAndRasters.Values.ToList());
-            //分辨率等于0，则使用最高分辨率
-            if (Math.Abs(cellSize - 0) < 0.0001)
-            {
-                cellSize = RasterAnalysisEnvironmentClass.GetRasterCellSize(minRaster);
-            }
             //实例化栅格运算工具
             IMapAlgebraOp mapAlgebraOp = new RasterMapAlgebraOp() as IMapAlgebraOp;
-            RasterAnalysisEnvironmentClass.SetAnalysisEnvironment(mapAlgebraOp, minRaster, cellSize); //以分辨率最高的栅格为参考对象
+            //以分辨率最高的栅格为参考对象
+            RasterAnalysisEnvironmentClass.SetAnalysisEnvironment(mapAlgebraOp, referencedRaster, cellSize);
             return mapAlgebraOp;
         }
-
     }
 }
