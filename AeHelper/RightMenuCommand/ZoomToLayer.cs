@@ -18,7 +18,7 @@ namespace AeHelper.RightMenuCommand
         /// <param name="layer"></param>
         public ZoomToLayer(ILayer layer)
         {
-            base.m_caption = "Zoom to layer";
+            base.m_caption = "Zoom To Layer";
             selectLayer = layer;
         }
 

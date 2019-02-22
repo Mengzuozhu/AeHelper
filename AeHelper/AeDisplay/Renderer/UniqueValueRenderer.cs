@@ -121,7 +121,7 @@ namespace AeHelper.AeDisplay.Renderer
                 uniqueValueRenderer.AddValue(0, i, currentValue);
                 fillSymbol.Color = enumColors.Next();
                 string valueLabel = currentValue.ToString();
-                if (StringFunction.IsNumeric(valueLabel))
+                if (StringHelper.IsNumeric(valueLabel))
                 {
                     //获取四位小数的字符串
                      valueLabel = GetRound(currentValue);

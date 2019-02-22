@@ -19,7 +19,7 @@ namespace AeHelper.RightMenuCommand
         /// <param name="pLayer"></param>
         public BuildAttributeTable(ILayer pLayer)
         {
-            base.m_caption = "Build attribute table";
+            base.m_caption = "Build Attribute Table";
             layer = pLayer;
         }
 

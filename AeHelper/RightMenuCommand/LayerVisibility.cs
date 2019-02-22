@@ -10,8 +10,7 @@ namespace AeHelper.RightMenuCommand
     /// </summary>
     public sealed class LayerVisibility : BaseCommand, ICommandSubType
     {
-        private IHookHelper m_hookHelper = new HookHelperClass();
-
+        private readonly IHookHelper m_hookHelper = new HookHelperClass();
         private long m_subType;
 
         /// <inheritdoc />
@@ -55,7 +54,7 @@ namespace AeHelper.RightMenuCommand
         {
             get
             {
-                return m_subType == 1 ? "Turn all layers on" : "Turn all layers off";
+                return m_subType == 1 ? "Turn All Layers On" : "Turn All Layers Off";
             }
         }
 

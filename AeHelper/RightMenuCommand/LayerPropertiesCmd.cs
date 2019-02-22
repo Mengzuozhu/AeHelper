@@ -66,17 +66,17 @@ namespace AeHelper.RightMenuCommand
         #endregion
 
         private IHookHelper m_hookHelper;
-        IActiveView m_activeView;
-        ILayer currentLayer;
-        ITOCControl2 tocControl;
+        private IActiveView m_activeView;
+        private readonly ILayer currentLayer;
+        private readonly ITOCControl2 tocControl;
 
         /// <inheritdoc />
         public LayerPropertiesCmd(ITOCControl2 mTocControl, ILayer pLayer)
         {
             base.m_category = "ControlsApplication";
-            base.m_caption = "Layer properties";
-            base.m_message = "Layer properties";
-            base.m_toolTip = "Layer properties";
+            base.m_caption = "Layer Properties";
+            base.m_message = "Layer Properties";
+            base.m_toolTip = "Layer Properties";
             base.m_name = "LayerPropertiesCmd";
             base.m_enabled = true;
 

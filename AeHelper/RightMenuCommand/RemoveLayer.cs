@@ -15,7 +15,7 @@ namespace AeHelper.RightMenuCommand
         /// <inheritdoc />
         public RemoveLayer(ILayer pLayer)
         {
-            base.m_caption = "Remove layer";
+            base.m_caption = "Remove Layer";
             layer = pLayer;
         }
 

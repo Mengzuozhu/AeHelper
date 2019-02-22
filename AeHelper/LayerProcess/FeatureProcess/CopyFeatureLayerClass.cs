@@ -2,7 +2,7 @@
 using System.Data;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Geodatabase;
-using VSTypeFunction.DataTableClass;
+using VSTypeFunction.DataTableHelper;
 
 namespace AeHelper.LayerProcess.FeatureProcess
 {

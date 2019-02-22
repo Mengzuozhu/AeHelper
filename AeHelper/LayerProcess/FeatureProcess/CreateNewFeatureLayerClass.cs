@@ -4,7 +4,7 @@ using System.IO;
 using AeHelper.LayerProcess.FieldHelper;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Geodatabase;
-using VSTypeFunction.DataTableClass;
+using VSTypeFunction.DataTableHelper;
 
 namespace AeHelper.LayerProcess.FeatureProcess
 {
