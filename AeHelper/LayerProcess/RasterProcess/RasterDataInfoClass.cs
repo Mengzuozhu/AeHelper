@@ -77,6 +77,16 @@ namespace AeHelper.LayerProcess.RasterProcess
         /// <summary>
         /// 获取栅格数据集
         /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        public static IDataset GetDataset(string filePath)
+        {
+            return GetRasterDataset(filePath) as IDataset;
+        }
+
+        /// <summary>
+        /// 获取栅格数据集
+        /// </summary>
         /// <param name="filePath">栅格文件路径</param>
         /// <returns></returns>
         public static IRasterDataset GetRasterDataset(string filePath)

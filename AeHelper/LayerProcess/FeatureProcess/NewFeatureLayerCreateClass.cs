@@ -11,7 +11,7 @@ namespace AeHelper.LayerProcess.FeatureProcess
     /// <summary>
     /// 创建新的要素图层
     /// </summary>
-    public class CreateNewFeatureLayerClass
+    public class NewFeatureLayerCreateClass
     {
         private readonly DataTable newAttributeTable; //新图层的属性表格
         private readonly IFeatureLayer oldFeatureLayer; //被查询的旧图层
@@ -21,7 +21,7 @@ namespace AeHelper.LayerProcess.FeatureProcess
         /// </summary>
         /// <param name="inVectorFile"></param>
         /// <param name="newLayerTable"></param>
-        public CreateNewFeatureLayerClass(string inVectorFile, DataTable newLayerTable)
+        public NewFeatureLayerCreateClass(string inVectorFile, DataTable newLayerTable)
         {
             oldFeatureLayer = FeatureInfoClass.GetFeatureLayer(inVectorFile);
             newAttributeTable = newLayerTable;
@@ -48,7 +48,7 @@ namespace AeHelper.LayerProcess.FeatureProcess
         /// <param name="columnName"></param>
         public void AddNewFiled(IFeatureLayer newLayer, string columnName)
         {
-            CreateNewFieldClass createNewField = new CreateNewFieldClass(newLayer, newAttributeTable);
+            NewFieldCreateClass createNewField = new NewFieldCreateClass(newLayer, newAttributeTable);
             createNewField.AddNewFiled(columnName, esriFieldType.esriFieldTypeString);
         }
 
@@ -59,7 +59,7 @@ namespace AeHelper.LayerProcess.FeatureProcess
         /// <param name="fieldNames">字段列表</param>
         public void AddNewFields(IFeatureLayer newLayer, List<string> fieldNames)
         {
-            CreateNewFieldClass createNewField = new CreateNewFieldClass(newLayer, newAttributeTable);
+            NewFieldCreateClass createNewField = new NewFieldCreateClass(newLayer, newAttributeTable);
             createNewField.AddNewFields(fieldNames, esriFieldType.esriFieldTypeString);
         }
 

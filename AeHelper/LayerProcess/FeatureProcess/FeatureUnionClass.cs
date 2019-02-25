@@ -7,7 +7,7 @@ namespace AeHelper.LayerProcess.FeatureProcess
     /// <summary>
     /// 合并要素
     /// </summary>
-    public class UnionFeatureClass
+    public class FeatureUnionClass
     {
         /// <summary>
         /// 将矢量图层中所有要素的几何体进行合并操作得到一个新几何体。

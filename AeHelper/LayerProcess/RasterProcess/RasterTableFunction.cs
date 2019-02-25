@@ -91,7 +91,7 @@ namespace AeHelper.LayerProcess.RasterProcess
             bool hasString = LayerFieldInfo.IsTableHasFieldType(oldTable, esriFieldType.esriFieldTypeString);
             //不需要删除，则返回原始图层
             if (!hasString) return rasterLayer;
-            ILayer copyLayer = CopyRasterDatasetClass.CopyAsTempRasterLayer(rasterLayer.FilePath);
+            ILayer copyLayer = RasterLayerCopy.CopyAsTempRasterLayer(rasterLayer.FilePath);
             if (copyLayer == null) return null;
             //删除字符串类型字段
             ILayer layer = DeleteFieldClass.DeleteFieldType(copyLayer, esriFieldType.esriFieldTypeString);

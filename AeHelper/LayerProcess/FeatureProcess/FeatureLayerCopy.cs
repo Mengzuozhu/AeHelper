@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data;
+using AeHelper.LayerProcess.AllLayerProcess;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Geodatabase;
 using VSTypeFunction.DataTableHelper;
@@ -9,7 +10,7 @@ namespace AeHelper.LayerProcess.FeatureProcess
     /// <summary>
     /// 复制要素图层
     /// </summary>
-    public class CopyFeatureLayerClass
+    public class FeatureLayerCopy
     {
         //新图层
         private readonly IFeatureLayer newLayer;
@@ -19,7 +20,7 @@ namespace AeHelper.LayerProcess.FeatureProcess
         /// </summary>
         /// <param name="inVectorFile"></param>
         /// <param name="outFile"></param>
-        public CopyFeatureLayerClass(string inVectorFile, string outFile)
+        public FeatureLayerCopy(string inVectorFile, string outFile)
         {
             newLayer = CopyLayer(inVectorFile, outFile);
         }
@@ -47,7 +48,7 @@ namespace AeHelper.LayerProcess.FeatureProcess
             {
                 return null;
             }
-            CopyDatasetClass.CopyDatasetAsFeatureLayer(dataset, outFile);
+            DatasetHelper.CopyDatasetAsFeatureLayer(dataset, outFile);
             return FeatureInfoClass.GetFeatureLayer(outFile);
         }
 
@@ -96,7 +97,7 @@ namespace AeHelper.LayerProcess.FeatureProcess
         /// <param name="fieldNames"></param>
         private void AddNewFiled(DataTable newAttributeTable, List<string> fieldNames)
         {
-            CreateNewFieldClass createNewField = new CreateNewFieldClass(newLayer, newAttributeTable);
+            NewFieldCreateClass createNewField = new NewFieldCreateClass(newLayer, newAttributeTable);
             createNewField.AddNewFields(fieldNames, esriFieldType.esriFieldTypeString);
         }
 

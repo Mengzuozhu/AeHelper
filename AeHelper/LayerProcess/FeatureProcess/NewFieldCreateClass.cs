@@ -14,7 +14,7 @@ namespace AeHelper.LayerProcess.FeatureProcess
     /// <summary>
     /// 创建新的字段
     /// </summary>
-    public class CreateNewFieldClass
+    public class NewFieldCreateClass
     {
         private readonly IFeatureLayer newFieldLayer;
         private readonly DataTable newFieldTable;
@@ -24,7 +24,7 @@ namespace AeHelper.LayerProcess.FeatureProcess
         /// </summary>
         /// <param name="inFeatureLayer"></param>
         /// <param name="newFieldTable"></param>
-        public CreateNewFieldClass(IFeatureLayer inFeatureLayer, DataTable newFieldTable)
+        public NewFieldCreateClass(IFeatureLayer inFeatureLayer, DataTable newFieldTable)
         {
             newFieldLayer = inFeatureLayer;
             this.newFieldTable = newFieldTable;
@@ -35,7 +35,7 @@ namespace AeHelper.LayerProcess.FeatureProcess
         /// </summary>
         /// <param name="vectorFile"></param>
         /// <param name="newFieldTable"></param>
-        public CreateNewFieldClass(string vectorFile, DataTable newFieldTable)
+        public NewFieldCreateClass(string vectorFile, DataTable newFieldTable)
         {
             newFieldLayer = FeatureInfoClass.GetFeatureLayer(vectorFile);
             this.newFieldTable = newFieldTable;

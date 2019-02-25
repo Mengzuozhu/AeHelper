@@ -1,4 +1,4 @@
-﻿using System.IO;
+﻿using AeHelper.LayerProcess.AllLayerProcess;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Geodatabase;
 using ExternalProgram.FileAndDirectory;
@@ -8,37 +8,8 @@ namespace AeHelper.LayerProcess.RasterProcess
     /// <summary>
     /// 复制栅格数据集
     /// </summary>
-    public class CopyRasterDatasetClass
+    public class RasterLayerCopy
     {
-        /// <summary>
-        /// 复制数据集为栅格图层
-        /// </summary>
-        /// <param name="dataset">数据集</param>
-        /// <param name="outFile">输出路径</param>
-        /// <returns></returns>
-        public static ILayer CopyDatasetAsRasterLayer(IDataset dataset, string outFile)
-        {
-            //不能复制
-            if (CannotCopy(dataset, outFile)) return null;
-            string fileName = Path.GetFileName(outFile);
-            IWorkspace workspace = RasterDataInfoClass.GetRasterWorkspace(outFile);
-            IDataset rasterDataset = dataset.Copy(fileName, workspace);
-            IRasterLayer copyRasterLayer = new RasterLayerClass();
-            copyRasterLayer.CreateFromDataset((IRasterDataset)rasterDataset);
-            return copyRasterLayer;
-        }
-
-        /// <summary>
-        /// 不能复制
-        /// </summary>
-        /// <param name="dataset"></param>
-        /// <param name="outFile"></param>
-        /// <returns></returns>
-        private static bool CannotCopy(IDataset dataset, string outFile)
-        {
-            return dataset == null || !dataset.CanCopy() || File.Exists(outFile);
-        }
-
         /// <summary>
         /// 复制获取临时栅格数据集
         /// </summary>
@@ -80,7 +51,7 @@ namespace AeHelper.LayerProcess.RasterProcess
         public static ILayer CopyRasterLayer(string inFile, string outFile)
         {
             IRasterDataset rasterDataset = RasterDataInfoClass.GetRasterDataset(inFile);
-            return CopyDatasetAsRasterLayer(rasterDataset as IDataset, outFile);
+            return DatasetHelper.CopyDatasetAsRasterLayer(rasterDataset as IDataset, outFile);
         }
 
     }

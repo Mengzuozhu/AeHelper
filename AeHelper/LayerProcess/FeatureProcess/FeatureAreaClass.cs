@@ -27,7 +27,7 @@ namespace AeHelper.LayerProcess.FeatureProcess
         }
 
         /// <summary>
-        /// 计算FID和加权面积
+        /// 计算FID和面积
         /// </summary>
         /// <param name="featureCursor">要素游标</param>
         /// <returns></returns>
