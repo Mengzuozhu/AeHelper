@@ -3,6 +3,7 @@ using AeHelper.LayerProcess.FeatureProcess;
 using AeHelper.LayerProcess.RasterProcess;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Geodatabase;
+using ExternalProgram.FileAndDirectory;
 
 namespace AeHelper.LayerProcess.AllLayerProcess
 {
@@ -39,6 +40,20 @@ namespace AeHelper.LayerProcess.AllLayerProcess
                 ? CopyDatasetAsFeatureLayer(dataset, outFile)
                 : CopyDatasetAsRasterLayer(dataset, outFile);
             return layer;
+        }
+
+        /// <summary>
+        /// 数据集复制为临时图层
+        /// </summary>
+        /// <param name="inFile"></param>
+        /// <returns></returns>
+        public static ILayer CopyAsTempLayer(string inFile)
+        {
+            bool isFeatureFile = FeatureInfoClass.IsFeatureFile(inFile);
+            string outFile = isFeatureFile
+                ? TempFile.CreateNewTempFile(temExtension: "shp")
+                : TempFile.CreateNewTempFile();
+            return CopyAsLayer(inFile, outFile);
         }
 
         /// <summary>
@@ -83,7 +98,7 @@ namespace AeHelper.LayerProcess.AllLayerProcess
             IWorkspace workspace = RasterDataInfoClass.GetRasterWorkspace(outFile);
             IDataset rasterDataset = dataset.Copy(fileName, workspace);
             IRasterLayer copyRasterLayer = new RasterLayerClass();
-            copyRasterLayer.CreateFromDataset((IRasterDataset)rasterDataset);
+            copyRasterLayer.CreateFromDataset((IRasterDataset) rasterDataset);
             return copyRasterLayer;
         }
 

@@ -22,7 +22,7 @@ namespace AeHelper.LayerProcess.FieldHelper
         private static IFieldEdit GetFieldEdit()
         {
             IField newField = new FieldClass();
-            return (IFieldEdit)newField;
+            return (IFieldEdit) newField;
         }
 
         private void SetFieldEdit(string fieldName, esriFieldType fieldType, bool isNullable = true,
@@ -86,7 +86,7 @@ namespace AeHelper.LayerProcess.FieldHelper
             fieldEdit.AliasName_2 = fieldName;
             //字段类型
             fieldEdit.Type_2 = fieldType;
-            fieldEdit.Editable_2 = true;  //可编辑
+            fieldEdit.Editable_2 = true; //可编辑
             fieldEdit.IsNullable_2 = true;
             return fieldEdit;
         }
@@ -105,6 +105,7 @@ namespace AeHelper.LayerProcess.FieldHelper
             {
                 return oldFieldIndex;
             }
+
             IFieldEdit newField = GetNewFieldEdit(fieldName, fieldType);
             pTable.AddField(newField);
             return pTable.Fields.FindField(fieldName);
@@ -114,6 +115,7 @@ namespace AeHelper.LayerProcess.FieldHelper
         {
             fieldEdit.Name_2 = fieldName;
         }
+
         private void SetType(esriFieldType fieldType)
         {
             //字段类型
@@ -183,6 +185,5 @@ namespace AeHelper.LayerProcess.FieldHelper
         {
             fieldEdit.Editable_2 = isEditable;
         }
-
     }
 }

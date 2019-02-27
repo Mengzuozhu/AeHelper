@@ -46,6 +46,7 @@ namespace AeHelper.LayerProcess.RasterProcess
                     pRasPyrmid.Create(); //创建金字塔
                 }
             }
+
             IRasterLayer pRasterLayer = new RasterLayerClass();
             pRasterLayer.CreateFromDataset(pRasterDataset);
             return pRasterLayer;
@@ -123,6 +124,38 @@ namespace AeHelper.LayerProcess.RasterProcess
         }
 
         /// <summary>
+        /// 获取栅格统计结果
+        /// </summary>
+        /// <param name="inFile"></param>
+        /// <returns></returns>
+        public static IRasterStatistics GetRasterStatistics(string inFile)
+        {
+            var rasterBand = GetRasterBandAt(inFile);
+            bool hasStatistics;
+            rasterBand.HasStatistics(out hasStatistics);
+            if (!hasStatistics)
+            {
+                rasterBand.ComputeStatsAndHist();
+            }
+
+            IRasterStatistics rasterStatistics = rasterBand.Statistics;
+            return rasterStatistics;
+        }
+
+        /// <summary>
+        /// 基于给定的波段索引，获取栅格波段
+        /// </summary>
+        /// <param name="inFile"></param>
+        /// <param name="bandIndex"></param>
+        /// <returns></returns>
+        public static IRasterBand GetRasterBandAt(string inFile, int bandIndex = 0)
+        {
+            IRaster raster = GetRaster(inFile);
+            IRasterBandCollection rasterBandCollection = raster as IRasterBandCollection;
+            return rasterBandCollection == null ? null : rasterBandCollection.Item(bandIndex);
+        }
+
+        /// <summary>
         /// 获取栅格
         /// </summary>
         /// <param name="filePath">文件路径</param>
@@ -142,7 +175,7 @@ namespace AeHelper.LayerProcess.RasterProcess
         {
             if (inRasters.Count == 0) return null;
             IRasterProps rasterProps = (IRasterProps)inRasters[0];
-            rasterProps.SpatialReference = SpatialReferenceClass.GetRasterProjectedReference(inRasters[0]);  //转换为投影坐标系
+            rasterProps.SpatialReference = SpatialReferenceClass.GetRasterProjectedReference(inRasters[0]); //转换为投影坐标系
             double minSize = (rasterProps.MeanCellSize().X + rasterProps.MeanCellSize().Y) / 2.0; //栅格的平均像元大小
             int minIndex = 0;
             for (int i = 1; i < inRasters.Count; i++)
@@ -155,6 +188,7 @@ namespace AeHelper.LayerProcess.RasterProcess
                     minIndex = i;
                 }
             }
+
             return inRasters[minIndex];
         }
 
@@ -201,6 +235,5 @@ namespace AeHelper.LayerProcess.RasterProcess
                 pRasPyramid.Create(); //创建金字塔
             }
         }
-
     }
 }
