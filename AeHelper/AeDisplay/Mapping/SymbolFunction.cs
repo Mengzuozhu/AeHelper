@@ -16,11 +16,12 @@ namespace AeHelper.AeDisplay.Mapping
         /// </summary>
         /// <param name="symbologyCtrl">符号显示控件</param>
         /// <param name="symbologyStyle">符号样式</param>
-        public static void LoadSymbolStyle(AxSymbologyControl symbologyCtrl, esriSymbologyStyleClass symbologyStyle)
+        /// <param name="subFolder"></param>
+        public static void LoadSymbolStyle(AxSymbologyControl symbologyCtrl, esriSymbologyStyleClass symbologyStyle,
+            string subFolder = @"Symbol\StyleSymbol\ESRI.ServerStyle")
         {
             symbologyCtrl.Clear();
-            string appPath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;  //目录结尾包含反斜杠\
-            string styleFilePath = appPath + @"StyleSymbol\ESRI.ServerStyle";
+            string styleFilePath = string.Format(@"{0}\{1}", Application.StartupPath, subFolder);
             //载入系统符号库
             symbologyCtrl.LoadStyleFile(styleFilePath);
             symbologyCtrl.StyleClass = symbologyStyle;
@@ -46,6 +47,5 @@ namespace AeHelper.AeDisplay.Mapping
             Image image = Image.FromHbitmap(new IntPtr(picture.Handle));
             pictureBox.Image = image;
         }
-
     }
 }

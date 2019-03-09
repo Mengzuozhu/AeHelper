@@ -235,10 +235,10 @@ namespace AeHelper.LayerProcess.AttributeTable
         /// 设置属性表的行数据
         /// </summary>
         /// <param name="pRow">图层行</param>
-        /// <param name="pDataRow">表格行</param>
+        /// <param name="dataRow">表格行</param>
         /// <param name="selectFieldName">选中字段</param>
         /// <param name="shapeType">图层几何类型</param>
-        private static void SetDataRow(IRow pRow, DataRow pDataRow, HashSet<string> selectFieldName,
+        private static void SetDataRow(IRow pRow, DataRow dataRow, HashSet<string> selectFieldName,
             string shapeType)
         {
             for (int i = 0; i < pRow.Fields.FieldCount; i++)
@@ -250,13 +250,13 @@ namespace AeHelper.LayerProcess.AttributeTable
                 switch (field.Type)
                 {
                     case esriFieldType.esriFieldTypeGeometry:
-                        pDataRow[field.Name] = shapeType;
+                        dataRow[field.Name] = shapeType;
                         break;
                     case esriFieldType.esriFieldTypeBlob:
-                        pDataRow[field.Name] = "Element";
+                        dataRow[field.Name] = "Element";
                         break;
                     default:
-                        pDataRow[field.Name] = pRow.Value[i];
+                        dataRow[field.Name] = pRow.Value[i];
                         break;
                 }
             }

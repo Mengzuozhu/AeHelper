@@ -3,12 +3,12 @@ using System.IO;
 using System.Text;
 using ESRI.ArcGIS.Geoprocessor;
 
-namespace AeHelper.LayerProcess.AllLayerProcess
+namespace AeHelper.LayerProcess.GeoProcess
 {
     /// <summary>
-    /// 几何处理
+    /// 几何处理辅助类
     /// </summary>
-    public class MyGeoprocessor
+    public class GeoprocessorHelper
     {
         /// <summary>
         /// 获取GP处理所需的输入列表
@@ -56,7 +56,7 @@ namespace AeHelper.LayerProcess.AllLayerProcess
         /// 获取GP工具
         /// </summary>
         /// <returns></returns>
-        private static Geoprocessor GetGeoprocessor()
+        public static Geoprocessor GetGeoprocessor()
         {
             return new Geoprocessor { OverwriteOutput = true };
         }
@@ -64,9 +64,13 @@ namespace AeHelper.LayerProcess.AllLayerProcess
         /// <summary>
         /// 异步执行GP处理
         /// </summary>
-        /// <param name="gpProcess">GP处理</param>
+        /// <param name="gpProcess">GP处理任务</param>
         public static void GpExecuteAsync(IGPProcess gpProcess)
         {
+            if (gpProcess == null)
+            {
+                return;
+            }
             Geoprocessor geoprocessor = GetGeoprocessor();
             geoprocessor.ExecuteAsync(gpProcess);
         }
@@ -74,9 +78,13 @@ namespace AeHelper.LayerProcess.AllLayerProcess
         /// <summary>
         /// 同步执行GP处理（注意许可证要满足调用的工具）
         /// </summary>
-        /// <param name="gpProcess">GP处理</param>
+        /// <param name="gpProcess">GP处理任务</param>
         public static void GpExecute(IGPProcess gpProcess)
         {
+            if (gpProcess == null)
+            {
+                return;
+            }
             Geoprocessor geoprocessor = GetGeoprocessor();
             geoprocessor.Execute(gpProcess, null);
         }

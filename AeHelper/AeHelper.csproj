@@ -41,6 +41,9 @@
     <Reference Include="ESRI.ArcGIS.ADF.Local, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="ESRI.ArcGIS.AnalysisTools, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="ESRI.ArcGIS.ArcMapUI, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -57,6 +60,9 @@
     <Reference Include="ESRI.ArcGIS.Controls, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.DataManagementTools, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="ESRI.ArcGIS.DataSourcesFile, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -101,6 +107,7 @@
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
+    <Reference Include="ESRI.ArcGIS.SpatialAnalystTools, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
     <Reference Include="ESRI.ArcGIS.System, Version=10.2.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -146,7 +153,8 @@
     <Compile Include="AeDisplay\Renderer\StretchRenderer.cs" />
     <Compile Include="AeDisplay\Renderer\UniqueValueRenderer.cs" />
     <Compile Include="LayerProcess\AllLayerProcess\LayerInfoClass.cs" />
-    <Compile Include="LayerProcess\AllLayerProcess\MyGeoprocessor.cs" />
+    <Compile Include="LayerProcess\GeoProcess\GeoProcessMessage.cs" />
+    <Compile Include="LayerProcess\GeoProcess\GeoprocessorHelper.cs" />
     <Compile Include="LayerProcess\AllLayerProcess\SpatialReferenceClass.cs" />
     <Compile Include="LayerProcess\AttributeTable\AttributeTableClass.cs" />
     <Compile Include="LayerProcess\AllLayerProcess\DatasetHelper.cs" />
@@ -161,6 +169,7 @@
     <Compile Include="LayerProcess\FieldHelper\FieldNameHelper.cs" />
     <Compile Include="LayerProcess\FieldHelper\LayerFieldInfo.cs" />
     <Compile Include="LayerProcess\FieldHelper\NewFieldClass.cs" />
+    <Compile Include="LayerProcess\GeoProcess\GeoTools.cs" />
     <Compile Include="LayerProcess\RasterProcess\RasterLayerCopy.cs" />
     <Compile Include="LayerProcess\RasterProcess\RasterAnalysisEnvironmentClass.cs" />
     <Compile Include="LayerProcess\RasterProcess\RasterCalculatorClass.cs" />

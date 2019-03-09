@@ -35,7 +35,7 @@ namespace AeHelper.LayerProcess.RasterProcess
         /// <returns></returns>
         public static IRasterLayer GetRasterLayerByDataset(IDataset dataset)
         {
-            IRasterWorkspaceEx pRasterWorkspace = (IRasterWorkspaceEx)dataset.Workspace;
+            IRasterWorkspaceEx pRasterWorkspace = (IRasterWorkspaceEx) dataset.Workspace;
             IRasterDataset pRasterDataset = pRasterWorkspace.OpenRasterDataset(dataset.Name);
             //影像金字塔判断与创建
             IRasterPyramid3 pRasPyrmid = pRasterDataset as IRasterPyramid3;
@@ -70,9 +70,9 @@ namespace AeHelper.LayerProcess.RasterProcess
         /// <returns></returns>
         public static IWorkspace GetRasterWorkspace(string filePath)
         {
-            string outDir = Path.GetDirectoryName(filePath);
+            string directory = Path.GetDirectoryName(filePath);
             IWorkspaceFactory workFactory = new RasterWorkspaceFactoryClass();
-            return workFactory.OpenFromFile(outDir, 0);
+            return workFactory.OpenFromFile(directory, 0);
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace AeHelper.LayerProcess.RasterProcess
         public static IRasterDataset GetRasterDataset(string filePath)
         {
             string fileName = Path.GetFileName(filePath);
-            IRasterWorkspace pRasterWorkspace = (IRasterWorkspace)GetRasterWorkspace(filePath);
+            IRasterWorkspace pRasterWorkspace = (IRasterWorkspace) GetRasterWorkspace(filePath);
             IRasterDataset pRasterDataset = pRasterWorkspace.OpenRasterDataset(fileName);
             return pRasterDataset;
         }
@@ -119,22 +119,24 @@ namespace AeHelper.LayerProcess.RasterProcess
         {
             IRasterDescriptor rasDescriptor = new RasterDescriptorClass();
             rasDescriptor.Create(raster, null, field);
-            IGeoDataset geoDataset = (IGeoDataset)rasDescriptor;
+            IGeoDataset geoDataset = (IGeoDataset) rasDescriptor;
             return geoDataset;
         }
 
         /// <summary>
         /// 获取栅格统计结果
         /// </summary>
-        /// <param name="inFile"></param>
+        /// <param name="inFile">输入栅格文件</param>
+        /// <param name="bandIndex">波段索引</param>
         /// <returns></returns>
-        public static IRasterStatistics GetRasterStatistics(string inFile)
+        public static IRasterStatistics GetRasterStatistics(string inFile, int bandIndex = 0)
         {
-            var rasterBand = GetRasterBandAt(inFile);
+            var rasterBand = GetRasterBandAt(inFile, bandIndex);
             bool hasStatistics;
             rasterBand.HasStatistics(out hasStatistics);
             if (!hasStatistics)
             {
+                //计算栅格统计值
                 rasterBand.ComputeStatsAndHist();
             }
 
@@ -145,8 +147,8 @@ namespace AeHelper.LayerProcess.RasterProcess
         /// <summary>
         /// 基于给定的波段索引，获取栅格波段
         /// </summary>
-        /// <param name="inFile"></param>
-        /// <param name="bandIndex"></param>
+        /// <param name="inFile">输入栅格文件</param>
+        /// <param name="bandIndex">波段索引</param>
         /// <returns></returns>
         public static IRasterBand GetRasterBandAt(string inFile, int bandIndex = 0)
         {
@@ -174,13 +176,13 @@ namespace AeHelper.LayerProcess.RasterProcess
         public static IRaster GetMinCellSizeRaster(IList<IRaster> inRasters)
         {
             if (inRasters.Count == 0) return null;
-            IRasterProps rasterProps = (IRasterProps)inRasters[0];
+            IRasterProps rasterProps = (IRasterProps) inRasters[0];
             rasterProps.SpatialReference = SpatialReferenceClass.GetRasterProjectedReference(inRasters[0]); //转换为投影坐标系
             double minSize = (rasterProps.MeanCellSize().X + rasterProps.MeanCellSize().Y) / 2.0; //栅格的平均像元大小
             int minIndex = 0;
             for (int i = 1; i < inRasters.Count; i++)
             {
-                rasterProps = (IRasterProps)inRasters[i];
+                rasterProps = (IRasterProps) inRasters[i];
                 rasterProps.SpatialReference = SpatialReferenceClass.GetRasterProjectedReference(inRasters[i]);
                 double cellSize = (rasterProps.MeanCellSize().X + rasterProps.MeanCellSize().Y) / 2.0;
                 if (cellSize < minSize)
@@ -199,7 +201,7 @@ namespace AeHelper.LayerProcess.RasterProcess
         /// <returns></returns>
         public static double GetCellArea(IRaster raster)
         {
-            IRasterProps rasterProps = (IRasterProps)raster;
+            IRasterProps rasterProps = (IRasterProps) raster;
             rasterProps.SpatialReference = SpatialReferenceClass.GetRasterProjectedReference(raster);
             double sizeX = rasterProps.MeanCellSize().X;
             double sizeY = rasterProps.MeanCellSize().Y;

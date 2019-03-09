@@ -19,7 +19,18 @@ namespace AeHelper.LayerProcess.RasterProcess
         /// <returns></returns>
         public static DataTable GetRasterTableByGeoDataset(IGeoDataset geoDataset)
         {
-            IRaster raster = (IRaster)geoDataset;
+            IRaster raster = (IRaster) geoDataset;
+            ITable iTable = GetTableByRaster(raster);
+            return AttributeTableClass.GetAttributeTableByITable(iTable);
+        }
+
+        /// <summary>
+        /// 获取栅格的属性表
+        /// </summary>
+        /// <param name="raster">栅格</param>
+        /// <returns></returns>
+        public static DataTable GetRasterTableByIRaster(IRaster raster)
+        {
             ITable iTable = GetTableByRaster(raster);
             return AttributeTableClass.GetAttributeTableByITable(iTable);
         }
@@ -45,14 +56,15 @@ namespace AeHelper.LayerProcess.RasterProcess
         public static ITable BuildRasterAttributeTable(ILayer layer)
         {
             if (!(layer is IRasterLayer)) return null;
-            IRasterLayer rasterLayer = (IRasterLayer)layer;
+            IRasterLayer rasterLayer = (IRasterLayer) layer;
             IRaster pRaster = rasterLayer.Raster;
             ITable rTable = GetTableByRaster(pRaster);
             if (rTable != null) return rTable; //直接获取属性表
+
             //建立新属性表
             BuildRasterAttributeTable(rasterLayer);
             //更新属性表
-            return GetTableByRaster(pRaster);    //重新获取属性表
+            return GetTableByRaster(pRaster); //重新获取属性表
         }
 
         /// <summary>
@@ -62,7 +74,7 @@ namespace AeHelper.LayerProcess.RasterProcess
         public static void BuildRasterAttributeTable(IRasterDataset rasterDataset)
         {
             //建立默认属性表
-            IRasterDatasetEdit2 rasterDatasetEdit = (IRasterDatasetEdit2)rasterDataset;
+            IRasterDatasetEdit2 rasterDatasetEdit = (IRasterDatasetEdit2) rasterDataset;
             if (rasterDatasetEdit == null) return;
             rasterDatasetEdit.BuildAttributeTable();
         }
@@ -86,7 +98,7 @@ namespace AeHelper.LayerProcess.RasterProcess
         public static IRasterLayer DeleteRasterStringField(IRasterLayer rasterLayer)
         {
             if (!IsRasterLayerHaveTable(rasterLayer.Raster)) return rasterLayer;
-            ITable oldTable = (ITable)rasterLayer;
+            ITable oldTable = (ITable) rasterLayer;
             //判断是否存在字符串字段
             bool hasString = LayerFieldInfo.IsTableHasFieldType(oldTable, esriFieldType.esriFieldTypeString);
             //不需要删除，则返回原始图层
@@ -95,7 +107,7 @@ namespace AeHelper.LayerProcess.RasterProcess
             if (copyLayer == null) return null;
             //删除字符串类型字段
             ILayer layer = DeleteFieldClass.DeleteFieldType(copyLayer, esriFieldType.esriFieldTypeString);
-            return (IRasterLayer)layer;
+            return (IRasterLayer) layer;
         }
 
         /// <summary>
@@ -109,6 +121,7 @@ namespace AeHelper.LayerProcess.RasterProcess
             {
                 return false;
             }
+
             return GetRasterBandAttributeTable(raster) != null;
         }
 
@@ -125,6 +138,7 @@ namespace AeHelper.LayerProcess.RasterProcess
             {
                 return true;
             }
+
             return pProp.PixelType == rstPixelType.PT_FLOAT || pProp.PixelType == rstPixelType.PT_DOUBLE;
         }
 
@@ -135,8 +149,8 @@ namespace AeHelper.LayerProcess.RasterProcess
         /// <returns></returns>
         private static ITable GetRasterBandAttributeTable(IRaster raster)
         {
-            IRasterBandCollection pRasterbandCollection = (IRasterBandCollection)raster;
-            IRasterBand rasterBand = pRasterbandCollection.Item(0);
+            IRasterBandCollection rasterBands = (IRasterBandCollection) raster;
+            IRasterBand rasterBand = rasterBands.Item(0);
             return rasterBand.AttributeTable;
         }
 
@@ -149,6 +163,5 @@ namespace AeHelper.LayerProcess.RasterProcess
             IRasterDataset rasterDataset = RasterDataInfoClass.GetRasterDataset(rasterLayer.FilePath);
             BuildRasterAttributeTable(rasterDataset);
         }
-
     }
 }

@@ -71,6 +71,7 @@ namespace AeHelper.LayerProcess.RasterProcess
             //设置输出数据空间参考
             IGeoDataset inGeoDataset = raster as IGeoDataset;
             if (inGeoDataset == null) return;
+
             pRasAnalysisEnvironment.OutSpatialReference = inGeoDataset.SpatialReference;
         }
     }

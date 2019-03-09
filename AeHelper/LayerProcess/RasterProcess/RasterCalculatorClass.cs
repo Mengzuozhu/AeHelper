@@ -81,10 +81,17 @@ namespace AeHelper.LayerProcess.RasterProcess
             }
             finally
             {
-                //解绑
-                foreach (string key in nameAndRasters.Keys)
+                try
                 {
-                    mapAlgebraOp.UnbindRaster(key);
+                    //解绑
+                    foreach (string key in nameAndRasters.Keys)
+                    {
+                        mapAlgebraOp.UnbindRaster(key);
+                    }
+                }
+                catch
+                {
+                    //解绑异常，则忽略
                 }
             }
 
