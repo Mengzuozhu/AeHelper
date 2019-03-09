@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using AeHelper.LayerProcess.FeatureProcess;
 using ESRI.ArcGIS.AnalysisTools;
+using ESRI.ArcGIS.ConversionTools;
 using ESRI.ArcGIS.DataManagementTools;
 using ESRI.ArcGIS.Geometry;
+using ESRI.ArcGIS.Geoprocessor;
 using ESRI.ArcGIS.SpatialAnalystTools;
 
 namespace AeHelper.LayerProcess.GeoProcess
@@ -108,6 +110,40 @@ namespace AeHelper.LayerProcess.GeoProcess
                 resampling_type = resampleMethod,
             };
             GeoprocessorHelper.GpExecute(resample);
+        }
+
+        /// <summary>
+        /// 栅格转为点矢量
+        /// </summary>
+        /// <param name="inFile">输入栅格</param>
+        /// <param name="selectField">选中字段</param>
+        /// <param name="outFile">输出文件</param>
+        public static void RasterToPoint(string inFile, string selectField, string outFile)
+        {
+            RasterToPoint rasterToPoint = new RasterToPoint
+            {
+                in_raster = inFile,
+                raster_field = selectField,
+                out_point_features = outFile
+            };
+            GeoprocessorHelper.GpExecute(rasterToPoint);
+        }
+
+        /// <summary>
+        /// 栅格转为面矢量
+        /// </summary>
+        /// <param name="inFile">输入栅格</param>
+        /// <param name="selectField">选中字段</param>
+        /// <param name="outFile">输出文件</param>
+        public static void RasterToPolygon(string inFile, string selectField, string outFile)
+        {
+            RasterToPolygon rasterToPolygon = new RasterToPolygon
+            {
+                in_raster = inFile,
+                raster_field = selectField,
+                out_polygon_features = outFile
+            };
+            GeoprocessorHelper.GpExecute(rasterToPolygon);
         }
 
         /// <summary>
