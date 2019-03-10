@@ -152,7 +152,8 @@
     <Compile Include="AeDisplay\Mapping\PageLayoutTemplate.cs" />
     <Compile Include="AeDisplay\Mapping\SymbolFunction.cs" />
     <Compile Include="AeDisplay\Renderer\ClassifyRenderer.cs" />
-    <Compile Include="AeDisplay\Renderer\RendererClass.cs" />
+    <Compile Include="AeDisplay\Renderer\ColorHelper.cs" />
+    <Compile Include="AeDisplay\Renderer\RenderHelper.cs" />
     <Compile Include="AeDisplay\Renderer\StretchRenderer.cs" />
     <Compile Include="AeDisplay\Renderer\UniqueValueRenderer.cs" />
     <Compile Include="LayerProcess\AllLayerProcess\LayerInfoClass.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="LayerProcess\FieldHelper\LayerFieldInfo.cs" />
     <Compile Include="LayerProcess\FieldHelper\NewFieldClass.cs" />
     <Compile Include="LayerProcess\GeoProcess\GeoTools.cs" />
+    <Compile Include="LayerProcess\GeoProcess\GpMergeClass.cs" />
     <Compile Include="LayerProcess\RasterProcess\RasterLayerCopy.cs" />
     <Compile Include="LayerProcess\RasterProcess\RasterAnalysisEnvironmentClass.cs" />
     <Compile Include="LayerProcess\RasterProcess\RasterCalculatorClass.cs" />

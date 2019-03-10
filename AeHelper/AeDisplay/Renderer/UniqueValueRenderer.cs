@@ -15,9 +15,9 @@ namespace AeHelper.AeDisplay.Renderer
     /// <summary>
     /// 唯一值渲染
     /// </summary>
-    public class MyUniqueValueRenderer : RendererClass
+    public class MyUniqueValueRenderer 
     {
-        IRasterLayer rasterLayer;
+        private readonly IRasterLayer rasterLayer;
 
         /// <summary>
         /// 唯一值渲染
@@ -53,7 +53,7 @@ namespace AeHelper.AeDisplay.Renderer
             }
             //设置唯一值渲染属性
             SetUniqueRendererProperty(uniqueValueRenderer, uniqueFiled, uniqueCount);
-            IEnumColors enumColors = GetEnumColors(pStyleGalleryItem, uniqueCount);
+            IEnumColors enumColors = RenderHelper.GetEnumColors(pStyleGalleryItem, uniqueCount);
             enumColors.Reset();
             //添加唯一值和设置标注符号
             AddValueAndSetLabelSymbol(uniqueValueRenderer, uniqueValue, enumColors);
@@ -86,7 +86,7 @@ namespace AeHelper.AeDisplay.Renderer
                 return ;
             }
             uniqueValueRenderer.set_ClassCount(0, uniqueCount);
-            IEnumColors enumColors = GetEnumColors(pStyleGalleryItem, uniqueCount);
+            IEnumColors enumColors = RenderHelper.GetEnumColors(pStyleGalleryItem, uniqueCount);
             enumColors.Reset();
             //添加唯一值和设置标注符号
             AddValueAndSetLabelSymbol(uniqueValueRenderer, uniqueValue, enumColors);

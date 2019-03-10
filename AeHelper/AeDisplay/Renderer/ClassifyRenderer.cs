@@ -17,9 +17,9 @@ namespace AeHelper.AeDisplay.Renderer
     /// <summary>
     /// 分级渲染
     /// </summary>
-    public class ClassifyRenderer : RendererClass
+    public class ClassifyRenderer 
     {
-        IRasterLayer rasterLayer;
+        private readonly IRasterLayer rasterLayer;
 
         /// <summary>
         /// 分级渲染
@@ -287,7 +287,7 @@ namespace AeHelper.AeDisplay.Renderer
             IRasterRenderer rasterRend = (IRasterRenderer)rasterClassRenderer;
             rasterRend.Raster = rasterLayer.Raster;
             rasterRend.Update();
-            IEnumColors enumColors = GetColorRamp(pStyleGalleryItem, rasterClassRenderer.ClassCount).Colors;
+            IEnumColors enumColors = RenderHelper.GetColorRamp(pStyleGalleryItem, rasterClassRenderer.ClassCount).Colors;
             enumColors.Reset();
             IFillSymbol fillSymbol = new SimpleFillSymbolClass();
             for (int i = 0; i < rasterClassRenderer.ClassCount; i++)

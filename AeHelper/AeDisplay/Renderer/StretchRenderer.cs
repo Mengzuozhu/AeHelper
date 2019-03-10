@@ -10,7 +10,7 @@ namespace AeHelper.AeDisplay.Renderer
     /// <summary>
     /// 拉伸渲染
     /// </summary>
-    public class StretchRenderer : RendererClass
+    public class StretchRenderer 
     {
         /// <summary>
         /// 添加拉伸方法
@@ -53,7 +53,7 @@ namespace AeHelper.AeDisplay.Renderer
             rasterRenderer.Raster = raster;
             rasterRenderer.Update();
             stretchRenderer.BandIndex = 0;
-            stretchRenderer.ColorRamp = GetColorRamp(pStyleGalleryItem, 255);
+            stretchRenderer.ColorRamp = RenderHelper.GetColorRamp(pStyleGalleryItem, 255);
             //设置拉伸类型
             IRasterStretch stretchType = (IRasterStretch)rasterRenderer;
             stretchType.StretchType = stretType;
