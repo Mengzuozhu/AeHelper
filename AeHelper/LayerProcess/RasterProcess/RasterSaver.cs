@@ -18,6 +18,7 @@ namespace AeHelper.LayerProcess.RasterProcess
         {
             //文件已存在，则返回
             if (File.Exists(outFile) || raster == null) return;
+
             IRasterBandCollection pRasBandCol = raster as IRasterBandCollection;
             if (pRasBandCol == null) return;
             string fileName = Path.GetFileName(outFile);
@@ -29,7 +30,8 @@ namespace AeHelper.LayerProcess.RasterProcess
             {
                 pRsGeo.MakePermanent();
             }
-            RasterDataInfoClass.CreatePyramid(outFile);  //创建金字塔
+
+            RasterDataInfoClass.CreatePyramid(outFile); //创建金字塔
         }
 
         /// <summary>
@@ -41,7 +43,7 @@ namespace AeHelper.LayerProcess.RasterProcess
         {
             if (geoDataset == null) return;
 
-            SaveRasterAsDataset((IRaster)geoDataset, outFile);
+            SaveRasterAsDataset((IRaster) geoDataset, outFile);
         }
 
         /// <summary>
@@ -49,15 +51,30 @@ namespace AeHelper.LayerProcess.RasterProcess
         /// </summary>
         /// <param name="raster">栅格</param>
         /// <param name="outFile">输出文件</param>
-        public static void SaveRasterByISaveAs(IRaster raster, string outFile)
+        public static void SaveAndReleaseRasterByISaveAs(IRaster raster, string outFile)
         {
-            if (raster == null) return;
-            //保存结果，要用ISaveAs来保存
-            ISaveAs saveAs = raster as ISaveAs;
-            if (saveAs != null) saveAs.SaveAs(outFile, null, "IMAGINE Image");
-            //释放栅格对象
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(raster);
+            SaveRasterByISaveAs(raster, outFile);
+            if (raster != null)
+            {
+                //释放栅格对象
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(raster);
+            }
         }
 
+        /// <summary>
+        /// 保存栅格为输出文件
+        /// </summary>
+        /// <param name="raster"></param>
+        /// <param name="outFile"></param>
+        /// <returns></returns>
+        public static void SaveRasterByISaveAs(IRaster raster, string outFile)
+        {
+            //保存结果，要用ISaveAs来保存
+            ISaveAs2 saveAs = raster as ISaveAs2;
+            if (saveAs != null)
+            {
+                saveAs.SaveAs(outFile, null, "IMAGINE Image");
+            }
+        }
     }
 }
