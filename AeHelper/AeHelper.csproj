@@ -210,7 +210,6 @@
   <ItemGroup>
     <Content Include="Lib\ExternalProgram.dll" />
     <Content Include="Lib\VSTypeFunction.dll" />
-    <Content Include="RightMenuCommand\LayerPropertiesCmd.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

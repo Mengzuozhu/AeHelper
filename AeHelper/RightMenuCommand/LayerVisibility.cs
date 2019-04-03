@@ -54,7 +54,7 @@ namespace AeHelper.RightMenuCommand
         {
             get
             {
-                return m_subType == 1 ? "Turn All Layers On" : "Turn All Layers Off";
+                return m_subType == 1 ? "打开所有图层(&O)" : "关闭所有图层(&C)";
             }
         }
 

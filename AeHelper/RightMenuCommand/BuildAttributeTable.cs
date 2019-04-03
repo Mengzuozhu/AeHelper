@@ -17,9 +17,10 @@ namespace AeHelper.RightMenuCommand
         /// 创建属性表
         /// </summary>
         /// <param name="pLayer"></param>
-        public BuildAttributeTable(ILayer pLayer)
+        /// <param name="name">菜单名</param>
+        public BuildAttributeTable(ILayer pLayer, string name ="创建属性表(&B)")
         {
-            base.m_caption = "Build Attribute Table";
+            base.m_caption = name;
             layer = pLayer;
         }
 

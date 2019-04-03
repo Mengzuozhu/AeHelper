@@ -16,9 +16,10 @@ namespace AeHelper.RightMenuCommand
         /// 放大至整个图层
         /// </summary>
         /// <param name="layer"></param>
-        public ZoomToLayer(ILayer layer)
+        /// <param name="name"></param>
+        public ZoomToLayer(ILayer layer, string name = "缩放至图层(&Z)")
         {
-            base.m_caption = "Zoom To Layer";
+            base.m_caption = name;
             selectLayer = layer;
         }
 

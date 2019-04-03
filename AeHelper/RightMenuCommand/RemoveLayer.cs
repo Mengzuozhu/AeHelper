@@ -12,10 +12,14 @@ namespace AeHelper.RightMenuCommand
         private IHookHelper hookHelper;
         private readonly ILayer layer;
 
-        /// <inheritdoc />
-        public RemoveLayer(ILayer pLayer)
+        /// <summary>
+        /// 移除图层
+        /// </summary>
+        /// <param name="pLayer"></param>
+        /// <param name="name"></param>
+        public RemoveLayer(ILayer pLayer, string name = "移除(&R)")
         {
-            base.m_caption = "Remove Layer";
+            base.m_caption = name;
             layer = pLayer;
         }
 
