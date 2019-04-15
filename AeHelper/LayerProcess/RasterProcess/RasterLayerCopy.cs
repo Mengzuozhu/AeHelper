@@ -6,7 +6,7 @@ using ExternalProgram.FileAndDirectory;
 namespace AeHelper.LayerProcess.RasterProcess
 {
     /// <summary>
-    /// 复制栅格数据集
+    /// 栅格数据集复制
     /// </summary>
     public class RasterLayerCopy
     {
@@ -18,7 +18,7 @@ namespace AeHelper.LayerProcess.RasterProcess
         public static IRasterDataset CopyAsTempRasterDataset(string rasterLayerFile)
         {
             //复制原始栅格为临时栅格
-            string tempFile = CreateNewTempFile();
+            string tempFile = TempFile.CreateNewTempFile();
             CopyRasterLayer(rasterLayerFile, tempFile);
             return RasterDataInfoClass.GetRasterDataset(tempFile);
         }
@@ -31,16 +31,7 @@ namespace AeHelper.LayerProcess.RasterProcess
         public static ILayer CopyAsTempRasterLayer(string rasterLayerFile)
         {
             //复制原始栅格为临时栅格
-            return CopyRasterLayer(rasterLayerFile, CreateNewTempFile());
-        }
-
-        /// <summary>
-        /// 创建临时栅格输出文件
-        /// </summary>
-        /// <returns></returns>
-        private static string CreateNewTempFile()
-        {
-            return TempFile.CreateNewTempFile();
+            return CopyRasterLayer(rasterLayerFile, TempFile.CreateNewTempFile());
         }
 
         /// <summary>
@@ -53,6 +44,5 @@ namespace AeHelper.LayerProcess.RasterProcess
             IRasterDataset rasterDataset = RasterDataInfoClass.GetRasterDataset(inFile);
             return DatasetHelper.CopyDatasetAsRasterLayer(rasterDataset as IDataset, outFile);
         }
-
     }
 }

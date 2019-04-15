@@ -142,6 +142,7 @@
     <Compile Include="AeDisplay\GeometryDisplay\DrawGeometryClass.cs" />
     <Compile Include="AeControl\MapAndPageLayoutSynch\ControlsSynchronizer.cs" />
     <Compile Include="AeControl\MapAndPageLayoutSynch\Maps.cs" />
+    <Compile Include="AeDisplay\MapDisplay\MapHelper.cs" />
     <Compile Include="AeDisplay\Mapping\ExportMapClass.cs" />
     <Compile Include="AeDisplay\Mapping\MappingClass.cs" />
     <Compile Include="AeDisplay\Mapping\MyLengendClass.cs" />

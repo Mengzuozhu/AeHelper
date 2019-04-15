@@ -70,32 +70,11 @@ namespace AeHelper.LayerProcess.RasterProcess
             //绑定
             foreach (var item in nameAndRasters)
             {
-                mapAlgebraOp.BindRaster((IGeoDataset)item.Value, item.Key);
+                mapAlgebraOp.BindRaster((IGeoDataset) item.Value, item.Key);
             }
 
-            IRaster outRaster;
-            try
-            {
-                //进行栅格计算
-                outRaster = (IRaster)mapAlgebraOp.Execute(expression);
-            }
-            finally
-            {
-                try
-                {
-                    //解绑
-                    foreach (string key in nameAndRasters.Keys)
-                    {
-                        mapAlgebraOp.UnbindRaster(key);
-                    }
-                }
-                catch
-                {
-                    //解绑异常，则忽略
-                }
-            }
-
-            return outRaster;
+            //进行栅格计算
+            return (IRaster) mapAlgebraOp.Execute(expression);
         }
 
         /// <summary>
