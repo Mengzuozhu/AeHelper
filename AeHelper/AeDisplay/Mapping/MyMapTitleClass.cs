@@ -21,11 +21,11 @@ namespace AeHelper.AeDisplay.Mapping
             IGraphicsContainer pGraphicsContainer = layoutControl.PageLayout as IGraphicsContainer;
             if (pGraphicsContainer == null) return;
             //如果存在标题，则删除标题
-            MappingClass.DeleteElementByName(layoutControl, "MapTitle");
+            MappingHelper.DeleteElementByName(layoutControl, "MapTitle");
             IElement pElement = (IElement)textElement;
             pElement.Geometry = pEnv;
             //添加元素
-            MappingClass.AddElementWithName(pGraphicsContainer, pElement, "MapTitle");
+            MappingHelper.AddElementWithName(pGraphicsContainer, pElement, "MapTitle");
         }
 
     }

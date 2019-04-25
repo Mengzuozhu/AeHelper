@@ -144,7 +144,7 @@
     <Compile Include="AeControl\MapAndPageLayoutSynch\Maps.cs" />
     <Compile Include="AeDisplay\MapDisplay\MapHelper.cs" />
     <Compile Include="AeDisplay\Mapping\ExportMapClass.cs" />
-    <Compile Include="AeDisplay\Mapping\MappingClass.cs" />
+    <Compile Include="AeDisplay\Mapping\MappingHelper.cs" />
     <Compile Include="AeDisplay\Mapping\MyLengendClass.cs" />
     <Compile Include="AeDisplay\Mapping\MyMapGridClass.cs" />
     <Compile Include="AeDisplay\Mapping\MyMapTitleClass.cs" />

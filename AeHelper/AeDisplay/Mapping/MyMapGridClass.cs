@@ -51,7 +51,7 @@ namespace AeHelper.AeDisplay.Mapping
             pGraticule.SubTickLineSymbol = pLineSymbol;
             pGraticule.SetSubTickVisibility(true, true, true, true);
             //设置网格的标签的样式和可见性
-            pGraticule.LabelFormat.Font = MappingClass.GetFont("Arial") as IFontDisp;
+            pGraticule.LabelFormat.Font = MappingHelper.GetFont("Arial") as IFontDisp;
             pGraticule.Visible = true;
             return pGraticule;
         }

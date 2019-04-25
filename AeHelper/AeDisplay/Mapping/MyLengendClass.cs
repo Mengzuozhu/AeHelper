@@ -29,7 +29,7 @@ namespace AeHelper.AeDisplay.Mapping
             pID.Value = "esriCarto.Legend";
             IMapSurroundFrame pMapSurroundFrame = pMapFrame.CreateSurroundFrame(pID, null);//根据唯一标示符，创建与之对应MapSurroundFrame
             //如果已经存在图例，删除已经存在的图例
-            MappingClass.DeleteElementByName(layoutControl, "Legend");
+            MappingHelper.DeleteElementByName(layoutControl, "Legend");
             //获取图例背景
             pMapSurroundFrame.Background = GetSymbolBackground();
             //添加图例
@@ -42,7 +42,7 @@ namespace AeHelper.AeDisplay.Mapping
             //设置图例属性
             SetLegendProperty(pLegend, pMap);
             //添加元素
-            MappingClass.AddElementWithName(pGraphicsContainer, pElement, "Legend");
+            MappingHelper.AddElementWithName(pGraphicsContainer, pElement, "Legend");
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace AeHelper.AeDisplay.Mapping
             IMapSurroundFrame pMapSurroundFrame = new MapSurroundFrameClass();
             pMapSurroundFrame.MapFrame = pMapFrame;
             //如果已经存在图例，删除已经存在的图例
-            MappingClass.DeleteElementByName(layoutControl, "Legend");
+            MappingHelper.DeleteElementByName(layoutControl, "Legend");
             pMapSurroundFrame.MapSurround = pLegend as IMapSurround;
             //获取图例背景
             pMapSurroundFrame.Background = GetSymbolBackground();
@@ -70,7 +70,7 @@ namespace AeHelper.AeDisplay.Mapping
             IElement pElement = pMapSurroundFrame as IElement;
             pElement.Geometry = pEnv;
             //添加元素
-            MappingClass.AddElementWithName(pGraphicsContainer, pElement, "Legend");
+            MappingHelper.AddElementWithName(pGraphicsContainer, pElement, "Legend");
         }
 
         /// <summary>
@@ -130,7 +130,7 @@ namespace AeHelper.AeDisplay.Mapping
             //设置文本格式
             ITextSymbol pTextSymbol = new TextSymbolClass();
             //pTextSymbol.Text = "测试";
-            pTextSymbol.Font = (IFontDisp)MappingClass.GetFont(fontSize: fontSize, isBold: true);
+            pTextSymbol.Font = (IFontDisp)MappingHelper.GetFont(fontSize: fontSize, isBold: true);
             pTextSymbol.Angle = 0;
             pTextSymbol.RightToLeft = false;//文本由左向右排列
             pTextSymbol.VerticalAlignment = esriTextVerticalAlignment.esriTVABaseline;//垂直方向基线对齐

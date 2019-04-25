@@ -26,7 +26,7 @@ namespace AeHelper.AeDisplay.Mapping
             IMapSurroundFrame pMapSurroundFrame = new MapSurroundFrameClass();
             pMapSurroundFrame.MapFrame = pMapFrame;
             //删除已经存在的比例尺
-            MappingClass.DeleteElementByName(layoutControl, "Scale Line");
+            MappingHelper.DeleteElementByName(layoutControl, "Scale Line");
             IScaleBar2 scaleBar2 = pStyleGalleryItem.Item as IScaleBar2;
             if (scaleBar2 != null)
             {
@@ -38,7 +38,7 @@ namespace AeHelper.AeDisplay.Mapping
             IElement pElement = (IElement)pMapSurroundFrame;
             pElement.Geometry = pEnv;
             //添加元素
-            MappingClass.AddElementWithName(pGraphicsContainer, pElement, "Scale Line");
+            MappingHelper.AddElementWithName(pGraphicsContainer, pElement, "Scale Line");
         }
 
         /// <summary>
@@ -58,12 +58,12 @@ namespace AeHelper.AeDisplay.Mapping
             pMapSurroundFrame.MapFrame = pMapFrame;
             scaleBar.BarHeight = pEnv.Height * 10;
             //删除已经存在的比例尺
-            MappingClass.DeleteElementByName(layoutControl, "Scale Line");
+            MappingHelper.DeleteElementByName(layoutControl, "Scale Line");
             pMapSurroundFrame.MapSurround = scaleBar as IMapSurround;
             IElement pElement = (IElement)pMapSurroundFrame;
             pElement.Geometry = pEnv;
             //添加元素
-            MappingClass.AddElementWithName(pGraphicsContainer, pElement, "Scale Line");
+            MappingHelper.AddElementWithName(pGraphicsContainer, pElement, "Scale Line");
         }
     }
 }

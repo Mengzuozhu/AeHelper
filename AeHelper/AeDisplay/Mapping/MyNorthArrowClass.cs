@@ -26,7 +26,7 @@ namespace AeHelper.AeDisplay.Mapping
             IMapSurroundFrame pMapSurroundFrame = new MapSurroundFrameClass();
             pMapSurroundFrame.MapFrame = pMapFrame;
             //删除已经存在的指北针
-            MappingClass.DeleteElementByName(layoutControl, "North Arrow");
+            MappingHelper.DeleteElementByName(layoutControl, "North Arrow");
             INorthArrow pNorthArrow = pStyleGalleryItem.Item as INorthArrow;
             if (pNorthArrow != null)
             {
@@ -36,7 +36,7 @@ namespace AeHelper.AeDisplay.Mapping
             IElement pElement = (IElement)pMapSurroundFrame;
             pElement.Geometry = pEnv;
             //添加元素
-            MappingClass.AddElementWithName(pGraphicsContainer, pElement, "North Arrow");
+            MappingHelper.AddElementWithName(pGraphicsContainer, pElement, "North Arrow");
         }
 
         /// <summary>

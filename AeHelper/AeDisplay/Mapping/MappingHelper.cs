@@ -7,7 +7,7 @@ namespace AeHelper.AeDisplay.Mapping
     /// <summary>
     /// 制图
     /// </summary>
-    public class MappingClass
+    public class MappingHelper
     {
         /// <summary>
         /// 制图类型
@@ -53,25 +53,41 @@ namespace AeHelper.AeDisplay.Mapping
         public static void DeleteElementByName(AxPageLayoutControl layoutControl, string elementName)
         {
             IGraphicsContainer pGraphicsContainer = layoutControl.PageLayout as IGraphicsContainer;
-            if (pGraphicsContainer == null) return;
-            IElement pElement = layoutControl.FindElementByName(elementName);
-            if (pElement != null)
+            var pElement = GetElementByName(layoutControl, elementName);
+            if (pGraphicsContainer != null && pElement != null)
             {
-                pGraphicsContainer.DeleteElement(pElement);  //删除指定元素
+                pGraphicsContainer.DeleteElement(pElement); //删除指定元素
             }
+        }
+
+        /// <summary>
+        /// 获取指定名称的元素
+        /// </summary>
+        /// <param name="layoutControl"></param>
+        /// <param name="elementName"></param>
+        /// <returns></returns>
+        public static IElement GetElementByName(AxPageLayoutControl layoutControl, string elementName)
+        {
+            IGraphicsContainer graphicsContainer = layoutControl.PageLayout as IGraphicsContainer;
+            return graphicsContainer == null ? null : layoutControl.FindElementByName(elementName);
         }
 
         /// <summary>
         /// 添加指定元素，并设置元素名称
         /// </summary>
-        /// <param name="pGraphicsContainer">图形容器</param>
+        /// <param name="graphicsContainer">图形容器</param>
         /// <param name="pElement">指定元素</param>
         /// <param name="elementName">元素名称</param>
-        public static void AddElementWithName(IGraphicsContainer pGraphicsContainer, IElement pElement, string elementName)
+        public static void AddElementWithName(IGraphicsContainer graphicsContainer, IElement pElement,
+            string elementName)
         {
             IElementProperties pElePro = pElement as IElementProperties;
-            if (pElePro != null) pElePro.Name = elementName;
-            pGraphicsContainer.AddElement(pElement, 0);
+            if (pElePro != null)
+            {
+                pElePro.Name = elementName;
+            }
+
+            graphicsContainer.AddElement(pElement, 0);
         }
 
         /// <summary>
@@ -89,6 +105,5 @@ namespace AeHelper.AeDisplay.Mapping
             myFont.Bold = isBold;
             return myFont;
         }
-
     }
 }
