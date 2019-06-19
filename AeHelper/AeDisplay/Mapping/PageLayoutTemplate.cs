@@ -18,14 +18,15 @@ namespace AeHelper.AeDisplay.Mapping
         {
             IActiveView pActiveView = pCurPageLayout as IActiveView;
             if (pActiveView == null) return;
+
             IMap pMap = pActiveView.FocusMap;
             //读取模板
             IPageLayout pTempPageLayout = GetTempPageLayout(templatePath);
             //设置地图页属性
             SetPageProperty(pCurPageLayout.Page, pTempPageLayout.Page);
-
             IGraphicsContainer curGraph = pCurPageLayout as IGraphicsContainer;
             if (curGraph == null) return;
+
             IMapFrame oldMapFrame = curGraph.FindFrame(pMap) as IMapFrame;
             //删除当前layout中除了mapframe外的所有element
             DeleteElement(curGraph);
@@ -37,6 +38,7 @@ namespace AeHelper.AeDisplay.Mapping
             {
                 curGraph.AddElement(pArray.Element[i - 1] as IElement, 0);
             }
+
             pActiveView.Refresh();
         }
 
@@ -87,6 +89,7 @@ namespace AeHelper.AeDisplay.Mapping
                     //必须重置，不然会叠加之前的元素
                     curGraph.Reset();
                 }
+
                 pElement = curGraph.Next();
             }
         }
@@ -118,13 +121,15 @@ namespace AeHelper.AeDisplay.Mapping
                         //设置地图框架
                         pTempMapSurroundFrame.MapFrame = oldMapFrame;
                     }
+
                     //获取图例指北针等元素
                     pArray.Add(tempElement);
                 }
+
                 tempElement = tempGraph.Next();
             }
+
             return pArray;
         }
-
     }
 }
